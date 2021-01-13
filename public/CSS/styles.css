@@ -1,0 +1,50 @@
+*{
+    margin: 0px;
+    padding: 0px;    
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #ebebeb;    
+}
+
+
+.header{
+    background-color: rgb(57, 168, 231);
+    color: lightcyan;
+    /*position: fixed;*/
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+.container{
+    width: 95%;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.logo-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+}
+
+header div img{
+    width: 20%;
+}
+
+.main{
+    background-color: lightsalmon;
+
+}
+
+.footer{
+    background-color: whitesmoke;
+    max-width: 95%;
+
+}
+
