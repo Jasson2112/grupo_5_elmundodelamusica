@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Jasson2112/grupo_5_elmundodelamusica#readme",
   "dependencies": {
+    "ejs": "^3.1.5",
     "express": "^4.17.1"
   }
 }
