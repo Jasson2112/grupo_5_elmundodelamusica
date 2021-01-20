@@ -1,29 +1,27 @@
-const express= require("express");
-const path= require("path");
 
 
 module.exports={
+    
     home: (req,res)=>{
-        res.render(path.resolve("./src/views/home.ejs"));
+        res.render("home");
     },
     login: (req,res)=>{
-        res.render(path.resolve("./src/views/login.ejs"));
+        res.render("login");
     },
     register: (req,res)=>{
-        res.render(path.resolve("./src/views/register.ejs"));
+        res.render("register");
     },
     productCart: (req,res)=>{
-        res.render(path.resolve("./src/views/productCart.ejs"));
+        res.render("productCart");
     },
     productDetail: (req,res)=>{
-        res.render(path.resolve("./src/views/productDetail.ejs"));
+        res.render("productDetail");
     },
     products: (req,res)=>{
-        res.render(path.resolve("./src/views/products.ejs"));
+        res.render("products");
     },
     tutorial: (req,res)=>{
-        res.render(path.resolve("./src/views/tutorial.ejs"));
+        res.render("tutorial");
     }
     
 }
-
