@@ -6,7 +6,7 @@ router.get("/", maincontroller.home);
 
 router.get("/login", maincontroller.login);
 
-router.get("/register", maincontroller.register);
+/*router.get("/register", maincontroller.register);*/
 
 router.get("/productCart", maincontroller.productCart);
 
