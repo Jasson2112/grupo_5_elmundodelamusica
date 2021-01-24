@@ -23,8 +23,9 @@ body{
 .headerTitulo{
     width: 50%;
     text-align: center;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 37PX;
+    justify-content: center;
+    font-family:'Rock Salt', cursive, sans-serif;
+    font-size: 28PX;
     display: none;
     color: #000;
     text-shadow: 0 0 5px rgb(114, 7, 7);
@@ -204,7 +205,8 @@ main section article:hover .main-article{
     
 }
 
-main section article:hover img {
+/*main section article*/
+.productList:hover img {
     transform:scale(1.06)
 }
 
@@ -303,6 +305,19 @@ text-align: center;
     div.burger-menu{
         display: none;
     }
+    main section div.productDetail article{
+   
+        display: flex;
+        flex-direction:row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items:center;
+    }
+    
+    main section div.productDetail article .main-articleDetail{
+    
+        width: 45%;
+    }
 }
 
 @media (min-width: 1000px){
@@ -332,4 +347,39 @@ text-align: center;
 }
 
 /*borrador*/
+
+/*.productDetail{
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items:center;
+
+}*/
+
+.productDetail{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    align-items: baseline;
+    position: relative;
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+
+}
+
+.main-articleDetail{
+    margin-left: auto;
+    margin-right: auto;
+    align-items: baseline;
+    position: relative;
+    padding: 15px;
+    background-color: white;
+   /* border-bottom-left-radius: 10PX;
+    border-bottom-right-radius: 10PX;*/
+    margin-bottom: 2rem;
+}
+
+
+
 

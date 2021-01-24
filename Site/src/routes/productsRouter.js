@@ -11,6 +11,10 @@ router.get("/productDetail", productController.productDetail);
 
 router.get("/tutorial", productController.tutorial);
 
+router.get("/productCreate", productController.productCreate);
+
+router.get("/productEdit", productController.productEdit);
+
 
 
 module.exports=router

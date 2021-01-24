@@ -11,6 +11,13 @@ module.exports={
     },
     tutorial: (req,res)=>{
         res.render("products/tutorial");
+    },
+    productCreate: (req,res)=>{
+        res.render("products/productCreate");
+    },
+    productEdit: (req,res)=>{
+        res.render("products/productEdit");
     }
+
     
 }
