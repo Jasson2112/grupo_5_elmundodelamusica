@@ -10,14 +10,18 @@
 
         <main class="main">
             <%- include("../partials/bannerTop.ejs")%>
-            <section class="container">
+            <section class="containerCreate">
                 
                 <form action="/" method="POST">
-                    <input type="text" name="name" placeholder="Nombre de Producto" style="border-radius: 5px;">
-                    <textarea name="Descripcion" id="" cols="60" rows="10" placeholder="Descripción del producto" style="border-radius: 5px;"></textarea>
-
+                    <input size="40" type="text" name="name" placeholder="Nombre de Producto" style="border-radius: 5px;">
+                    <br>
+                    <br>
+                    <textarea name="Descripcion" id="" cols="33" rows="5" placeholder="Descripción del producto" style="border-radius: 5px;"></textarea>
+                    <br>
+                    <br>
                     <h4>Foto de producto</h4>
                     <input type="file" name="avatar" style="border-radius: 5px;">
+                    <br>
                     <br>
 
                     </div>
@@ -49,9 +53,11 @@
                     <br>
                     <br>
 
-                    <input type="text" name="brand" placeholder="Marca del Producto" style="border-radius: 5px;">
+                    <input size="40" type="text" name="brand" placeholder="Marca del Producto" style="border-radius: 5px;">
+                    <br>
+                    <br>
                     <input type="number" step="any"  name="price" min="1" placeholder="Valor de Producto" style="border-radius: 5px;">
-
+                    <input type="number" step="any"  name="discount" min="0" max="100" placeholder="Descuento %" style="border-radius: 5px;">
                     <br>
                     <br>
 

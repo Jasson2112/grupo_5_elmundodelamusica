@@ -11,8 +11,45 @@
         <main class="main">
             <%- include("../partials/bannerTop.ejs")%>
             <section class="container">
-                <br>
+                <article>
+                    <div class="cartDetail">
+                       
+                        <div class="main-articleDetail">
+                            <img src="../images/Producto-1.jpg" alt="p1" class="product_img">
+                        </div>     
+
+                        <div class="main-articleDetail">
+                            <h4 class="description">Descripcion</h4>
+                        </div>  
+
+                        <div>                                  
+                            <p class="price">$6.770</p>
+                            <p class="finalPrice">$6.093</p>
+                            <p class="discount">10% off</p>
+                            <i class="far fa-trash-alt"></i>  
+                        </div> 
+
+                    </div>
+                        
+                    <div class="cartResume">
+                        <h2>Resumen de la compra</h2>
+                        <h5>Subtotal</h5>
+                        <h5 class="cartValue">$6.770</h5>
+                        <h5>Descuentos</h5>
+                        <h5 class="cartValue">$677</h5>
+                        <h5>costo de envío</h5>
+                        <h5 class="cartValue">$0</h5>
+                        <h4>Total</h4>
+                        <h4 class="cartValue">$6.093</h4>
+                        <div class="resumeButton">
+                            <input type="button" value="Finalizar Compra">
+                        </div>        
+                    </div>
+                </article>    
             </section>
+            <div class="resumeButton">
+                <button>Confirmar comprar</button>
+            </div> 
             <%- include("../partials/bannerBottom.ejs")%>
 
         </main>
