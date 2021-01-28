@@ -436,6 +436,23 @@ text-align: center;
 
 .containerCreate{
     width: 90%;
+    max-width: 360px;
+    position: relative;
+
+    margin: auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    border-style: solid;
+    background-color: whitesmoke;
+    padding: .5rem;
+    /*
+        margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    max-width: 450px;
     margin-left: 5%;
     margin-top: 3rem;
     margin-bottom: 4rem;
@@ -443,10 +460,8 @@ text-align: center;
     justify-content: center;
     display: flex;
     
-    flex-wrap: wrap;
-    border-radius: 10px;
-    border-style: solid;
-    background-color: whitesmoke;
+    flex-wrap: wrap;*/
+
     
 
     /*width:85%;
@@ -461,6 +476,16 @@ text-align: center;
     justify-content: center;
     text-align: center;*/
 
+
+}
+
+.tutorial{
+    padding: 1rem; 
+}
+
+.titleTutorial{
+    padding: .5rem;
+    text-decoration: underline;
 
 }
 
