@@ -438,7 +438,6 @@ text-align: center;
     width: 90%;
     max-width: 360px;
     position: relative;
-
     margin: auto;
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -446,37 +445,6 @@ text-align: center;
     border-style: solid;
     background-color: whitesmoke;
     padding: .5rem;
-    /*
-        margin: auto;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    max-width: 450px;
-    margin-left: 5%;
-    margin-top: 3rem;
-    margin-bottom: 4rem;
-    padding-top: 1rem;
-    justify-content: center;
-    display: flex;
-    
-    flex-wrap: wrap;*/
-
-    
-
-    /*width:85%;
-    max-width: 850px;
-    margin: 10px;
-    padding: 10px;
-    background-color: rgba(216, 181, 25, 0.842);
-    border-radius: 10px;
-    border-color: rgb(20, 20, 20);
-    align-items: center;
-    border-style: solid;
-    justify-content: center;
-    text-align: center;*/
-
-
 }
 
 .tutorial{
