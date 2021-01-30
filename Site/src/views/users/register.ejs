@@ -10,18 +10,23 @@
 
         <main class="main">
             <%- include("../partials/bannerTop.ejs")%>
-            <section class="container">
+            <section class="containerRegister">
                 <form action="/" method="POST">
                     <input type="text" name="name" placeholder="Nombre y apellido" style="border-radius: 5px;">
                     <input type="text" name="user" placeholder="Nombre de usuario" style="border-radius: 5px;">
-                    <input type="email" name="email" placeholder="E-mail" style="border-radius: 5px;">
+                    <br>
+                    <br>
+                    <input type="email" name="email" placeholder="E-mail" style="border-radius: 5px;" size="40">
+                    <br>
                     <br>
                     <label for="birth_date"><b>Fecha de nacimiento</b></label>
                     <br>
                     <input type="date" name="birth_date" id="birth_date" style="border-radius: 5px;">
                     <br>
-                    <input type="text" name="addres" placeholder="Domicilio" style="border-radius: 5px;">
-
+                    <br>
+                    <input type="text" name="addres" placeholder="Domicilio" style="border-radius: 5px;" size="40">
+                    <br>
+                    <br>
                     <h4>Elegí tu foto de usuario</h4>
                     <input type="file" name="avatar" style="border-radius: 5px;">
                     <br>
@@ -30,8 +35,10 @@
                     <input type="password" name="pass_confirm" placeholder="Confirmá tu contraseña" style="border-radius: 5px;">
                     <br>
                     <br>
-                    <input type="submit" value="Enviar" style="border-radius: 5px;">
-                    <input type="reset" value="Borrar" style="border-radius: 5px;">
+                    <div class="registerButtons">
+                        <input class="registerButton" type="submit" value="Crear" >
+                        <input class="deleteButton" type="reset" value="Borrar" >
+                    </div>
                     <br>
                     <br>
                 </form>

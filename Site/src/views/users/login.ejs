@@ -10,12 +10,18 @@
 
         <main class="main">
             <%- include("../partials/bannerTop.ejs")%>
-            <section class="container">
-                
+            <section class="containerLogin">
+                <h3>Ingresá a tu cuenta.</h3>
+                <br>
+                <br>                
                 <form action="/" method="POST">
-                    <input type="text" name="user" placeholder="Nombre de usuario" style="border-radius: 5px;">
-                    <input type="password" name="pass" placeholder="Elegí tu contraseña" style="border-radius: 5px;">
-                    <input type="submit" value="Enviar" style="border-radius: 5px;">
+                    <input type="text" name="user" placeholder="Ingresá tu usuario" style="border-radius: 5px;" size="40">
+                    <br>
+                    <br>
+                    <input type="password" name="pass" placeholder="Ingresá tu contraseña" style="border-radius: 5px;" size="40">
+                    <br>
+                    <br>
+                    <input class="sendButton" type="submit" value="Ingresar" style="border-radius: 5px;">
                 </form>
                 
             </section>
