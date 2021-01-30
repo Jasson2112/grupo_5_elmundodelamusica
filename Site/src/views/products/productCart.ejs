@@ -14,21 +14,22 @@
                 <article>
                     <div class="cartDetail">
                        
-                        <div class="main-articleDetail">
+                        <div class="imgCart"> 
                             <img src="../images/Producto-1.jpg" alt="p1" class="product_img">
                         </div>     
+                        <div class="cartDescription">
+                            <div class="cartDescriptionName">   
+                                <h4 class="descriptionCart">Descripcion</h4>
+                                <i class="far fa-trash-alt"></i> 
+                            </div>  
 
-                        <div class="main-articleDetail">
-                            <h4 class="description">Descripcion</h4>
-                        </div>  
-
-                        <div>                                  
-                            <p class="price">$6.770</p>
-                            <p class="finalPrice">$6.093</p>
-                            <p class="discount">10% off</p>
-                            <i class="far fa-trash-alt"></i>  
-                        </div> 
-
+                            <div class="cartDescriptionValue">                                  
+                                <p class="priceCart">$6.770</p>
+                                <p class="discountCart">10% off</p>
+                                <p class="finalPriceCart">$6.093</p>
+                                <input class="qtyCart" type="number" step="1">
+                            </div> 
+                        </div>
                     </div>
                         
                     <div class="cartResume">
@@ -47,9 +48,7 @@
                     </div>
                 </article>    
             </section>
-            <div class="resumeButton">
-                <button>Confirmar comprar</button>
-            </div> 
+
             <%- include("../partials/bannerBottom.ejs")%>
 
         </main>
