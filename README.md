@@ -28,4 +28,7 @@ https://kemuelmusica.com/ - https://www.kaironmusic.com.ar/
 Estas dos las utilizaremos plenamente por su diseño.
  
  
+ 
+Acceso al talero de Trello:
 
+https://trello.com/b/mw8aUGDC/proyecto-integrador-grupo-5
