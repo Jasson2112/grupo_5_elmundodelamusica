@@ -175,7 +175,7 @@ main section article img{
 .description{
     color: #666;
      margin-top: 20px;
-    width: 80%;
+    width: 90%;
 }
 
 .fa-music{
@@ -271,12 +271,14 @@ text-align: center;
 @media (min-width: 480px){
 
     main section div.products{
+        
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
         align-items: flex-start;
     }
+
     
     main section div.products article{
         width: 50%;
