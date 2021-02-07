@@ -10,6 +10,10 @@ const mainRouter = require('./src/routes/mainRouter');
 const usersRouter = require('./src/routes/usersRouter');
 const productsRouter = require('./src/routes/productsRouter');
 
+// Formularios
+app.use(express.urlencoded({ extended: false }));
+
+
 app.use("/", mainRouter);
 app.use('/products', productsRouter);
 app.use("/users", usersRouter);

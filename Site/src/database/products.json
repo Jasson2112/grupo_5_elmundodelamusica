@@ -1,135 +1,128 @@
-[
-    {
-     "name": "Gitarra Electrica",
-     "description": "Gitarra electrica rockera",
-     "price": "$1000",
-     "discount": "10%",
-     "finalPrice": "$900",
-     "category":"guitarra",
-     "marca": "Gibson",
-     "id": 1,
-     "image": null
-    },
-        {
-     "name": "Gitarra Criolla",
-     "description": "Gitarra criolla origial",
-     "price": "$2000",
-     "discount": "10%",
-     "finalPrice": "$1800",
-     "category":"guitarra",
-     "marca": "Ibanez",
-     "id": 2,
-     "image": null
-    },
-    {
-     "name": "Gitarra Acústica",
-     "description": "Gitarra acústica roja",
-     "price": "$3000",
-     "discount": "10%",
-     "finalPrice": "$2700",
-     "category":"guitarra",
-     "marca": "Fender",
-     "id": 3,
-     "image": null
-    },
-        {
-     "name": "Bajo",
-     "description": "Bajo electrico 4 cuerdas",
-     "price": "$1000",
-     "discount": "10%",
-     "finalPrice": "$900",
-     "category":"bajo",
-     "marca": "Gibson",
-     "id": 4,
-     "image": null
-    },
-        {
-     "name": "Bajo 5C",
-     "description": "Bajo electrico 5 cuerdas",
-     "price": "$100",
-     "discount": "10%",
-     "finalPrice": "$90",
-     "category":"bajo",
-     "marca": "Ibanez",
-     "id": 5,
-     "image": null
-    },
-        {
-     "name": "Bajo 6C",
-     "description": "Bajo electrico 6 cuerdas",
-     "price": "$3000",
-     "discount": "10%",
-     "finalPrice": "$2700",
-     "category":"bajo",
-     "marca": "Fender",
-     "id": 6,
-     "image": null
-    },
-        {
-     "name": "Bajo S/Cl",
-     "description": "Bajo electrico sin clavijero",
-     "price": "$1000",
-     "discount": "10%",
-     "finalPrice": "$900",
-     "category":"bajo",
-     "marca": "Gibson",
-     "id": 7,
-     "image": null
-    },
-        {
-     "name": "Batería 5C",
-     "description": "Batería 5 cuerpos",
-     "price": "$2000",
-     "discount": "10%",
-     "finalPrice": "$1800",
-     "category":"bateria",
-     "marca": "Pearl",
-     "id": 8,
-     "image": null
-    },
-        {
-     "name": "Batería Electrica",
-     "description": "Batería elctrónica completa",
-     "price": "$1000",
-     "discount": "10%",
-     "finalPrice": "$900",
-     "category":"bateria",
-     "marca": "Yamaha",
-     "id": 9,
-     "image": null
-    },
-        {
-     "name": "Microfono",
-     "description": "Microfono bidireccional",
-     "price": "$3000",
-     "discount": "10%",
-     "finalPrice": "$2700",
-     "category":"microfono",
-     "marca": "Shure",
-     "id": 10,
-     "image": null
-    },
-        {
-     "name": "Amplificador",
-     "description": "Amplificador para guitarra",
-     "price": "$1000",
-     "discount": "10%",
-     "finalPrice": "$900",
-     "category":"amplificador",
-     "marca": "Marshall",
-     "id": 11,
-     "image": null
-    },
-        {
-     "name": "Saxofón",
-     "description": "Saxofón sopranino",
-     "price": "$10000",
-     "discount": "10%",
-     "finalPrice": "$9000",
-     "category":"saxofon",
-     "marca": "Selmer",
-     "id": 12,
-     "image": null
-    }
-
-]
+[{
+    "name": "Gitarra Electrica",
+    "description": "Gitarra electrica rockera",
+    "price": "$1000",
+    "discount": "10%",
+    "finalPrice": "$900",
+    "category": "guitarra",
+    "marca": "Gibson",
+    "id": 1,
+    "image": null
+}, {
+    "name": "Gitarra Criolla",
+    "description": "Gitarra criolla origial",
+    "price": "$2000",
+    "discount": "10%",
+    "finalPrice": "$1800",
+    "category": "guitarra",
+    "marca": "Ibanez",
+    "id": 2,
+    "image": null
+}, {
+    "name": "Gitarra Acústica",
+    "description": "Gitarra acústica roja",
+    "price": "$3000",
+    "discount": "10%",
+    "finalPrice": "$2700",
+    "category": "guitarra",
+    "marca": "Fender",
+    "id": 3,
+    "image": null
+}, {
+    "name": "Bajo",
+    "description": "Bajo electrico 4 cuerdas",
+    "price": "$1000",
+    "discount": "10%",
+    "finalPrice": "$900",
+    "category": "bajo",
+    "marca": "Gibson",
+    "id": 4,
+    "image": null
+}, {
+    "name": "Bajo 5C",
+    "description": "Bajo electrico 5 cuerdas",
+    "price": "$100",
+    "discount": "10%",
+    "finalPrice": "$90",
+    "category": "bajo",
+    "marca": "Ibanez",
+    "id": 5,
+    "image": null
+}, {
+    "name": "Bajo 6C",
+    "description": "Bajo electrico 6 cuerdas",
+    "price": "$3000",
+    "discount": "10%",
+    "finalPrice": "$2700",
+    "category": "bajo",
+    "marca": "Fender",
+    "id": 6,
+    "image": null
+}, {
+    "name": "Bajo S/Cl",
+    "description": "Bajo electrico sin clavijero",
+    "price": "$1000",
+    "discount": "10%",
+    "finalPrice": "$900",
+    "category": "bajo",
+    "marca": "Gibson",
+    "id": 7,
+    "image": null
+}, {
+    "name": "Batería 5C",
+    "description": "Batería 5 cuerpos",
+    "price": "$2000",
+    "discount": "10%",
+    "finalPrice": "$1800",
+    "category": "bateria",
+    "marca": "Pearl",
+    "id": 8,
+    "image": null
+}, {
+    "name": "Batería Electrica",
+    "description": "Batería elctrónica completa",
+    "price": "$1000",
+    "discount": "10%",
+    "finalPrice": "$900",
+    "category": "bateria",
+    "marca": "Yamaha",
+    "id": 9,
+    "image": null
+}, {
+    "name": "Microfono",
+    "description": "Microfono bidireccional",
+    "price": "$3000",
+    "discount": "10%",
+    "finalPrice": "$2700",
+    "category": "microfono",
+    "marca": "Shure",
+    "id": 10,
+    "image": null
+}, {
+    "name": "Amplificador",
+    "description": "Amplificador para guitarra",
+    "price": "$1000",
+    "discount": "10%",
+    "finalPrice": "$900",
+    "category": "amplificador",
+    "marca": "Marshall",
+    "id": 11,
+    "image": null
+}, {
+    "name": "Saxofón",
+    "description": "Saxofón sopranino",
+    "price": "$10000",
+    "discount": "10%",
+    "finalPrice": "$9000",
+    "category": "saxofon",
+    "marca": "Selmer",
+    "id": 12,
+    "image": null
+}, {
+    "name": "nuevo Producto",
+    "Description": "new",
+    "interests": "a",
+    "brand": "pepe",
+    "price": "10",
+    "discount": "5"
+}]
