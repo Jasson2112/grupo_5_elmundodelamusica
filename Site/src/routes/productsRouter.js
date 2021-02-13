@@ -12,7 +12,7 @@ const storage = multer.diskStorage({
     filename: (req, file, callback) => {
         // Mejor usar algo como esto en lugar de Date.now()
         // https://www.npmjs.com/package/uuidv4
-        callback(null, 'user-' + Date.now() + path.extname(file.originalname));
+        callback(null, 'product-' + Date.now() + path.extname(file.originalname));
     }
 });
 const upload = multer({ storage });
