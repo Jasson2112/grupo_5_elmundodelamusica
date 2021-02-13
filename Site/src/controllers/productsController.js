@@ -1,43 +1,77 @@
+const fs = require('fs');
+const path = require('path');
+const jsonTable = require('../database/jsonTable');
+const productsTable = jsonTable('products');
 
-const fs = require("fs")
-const path= require("path")
+module.exports = {
+    products: (req, res) => {
+        let products = productsTable.all()
 
-let products= fs.readFileSync(path.join( __dirname, "../database/products.json") ,"utf-8");
-products= JSON.parse(products)
-
-module.exports={
-
-    products: (req,res)=>{
-        res.render("products/products");
+        res.render('products/products', { 
+            title: 'Listado de productos', 
+            products       
+        });
     },
-    productCreate: (req,res)=>{
-        res.render("products/productCreate");
+    productCreate: (req, res) => {
+        res.render('products/productCreate');
     },
-    productStore: (req,res)=>{
+    productStore: (req, res) => {
+        // Generamos el nuevo usuario
+        let product = req.body;
 
-          
-        let newProduct= req.body;
-        products.push(newProduct)
-        let productsJson= JSON.stringify(products)
-        fs.writeFileSync(path.join( __dirname, "../database/products.json"), productsJson);
-        return res.send("Hola ")   
+        if (req.file) {
+            product.image = req.file.filename;
+        } else {
+            res.send('La imagen es obligatoria');
+        }
+        
+        let productId = productsTable.create(product);
+        
+        res.redirect('products/productDetail' + productId);
     },
-    
-    
+    productDetail: (req, res) => {
+        let product = productsTable.find(req.params.id);
+
+        if ( product ) {
+            res.render('products/productDetail', { product });
+        } else {
+            res.send('No encontré el producto');
+        }
+    },
+    productEdit: (req, res) => {
+        let product = productsTable.find(req.params.id);
+
+        res.render('products/productEdit', { product });
+    },
+    update: (req, res) => {
+        let product = req.body;
+        product.id = Number(req.params.id);
+
+        // Si viene una imagen nueva la guardo
+        if (req.file) {
+            product.image = req.file.filename;
+        // Si no viene una imagen nueva, busco en base la que ya había
+        } else {
+            oldProduct = usersTable.find(product.id);
+            product.image = oldProduct.image;
+        }
+
+        let productId = productsTable.update(product);
+
+        res.redirect('products/productDetail' + productId);
+    },
+    destroy: (req, res) => {
+        let products = productsTable.all()
+
+        productsTable.delete(req.params.id);
+
+        res.redirect('/');
+    },
     productCart: (req,res)=>{
         res.render("products/productCart");
     },
-    productDetail: (req,res)=>{
-        res.render("products/productDetail");
-    },
-    
     tutorial: (req,res)=>{
         res.render("products/tutorial");
-    },
-    
-    productEdit: (req,res)=>{
-        res.render("products/productEdit");
     }
 
-    
 }

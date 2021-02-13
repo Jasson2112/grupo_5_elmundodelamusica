@@ -12,7 +12,7 @@
             <%- include("../partials/bannerTop.ejs")%>
             <section class="containerCreate">
                 
-                <form action="/products" method="POST">
+                <form action="/products" method="POST" enctype="multipart/form-data">
                     <input size="40" type="text" name="name" placeholder="Nombre de Producto" style="border-radius: 5px;">
                     <br>
                     <br>
@@ -20,7 +20,7 @@
                     <br>
                     <br>
                     <h4>Foto de producto</h4>
-                    <!-- <input type="file" name="avatar" style="border-radius: 5px;"> -->
+                    <input type="file" name="image" id="image" style="border-radius: 5px;">
                     <br>
                     <br>
 

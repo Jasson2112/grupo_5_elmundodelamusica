@@ -17,7 +17,7 @@
                     <% products.forEach(products=> { %>
                     <article class="productList" >
                         
-                        <a href="../products/productDetail"><img src="images/Producto-1.jpg" alt="p1" class="product_img"></a>
+                        <a href="/products/productDetail/<%= products.id %>"><img src="images/products/<%= products.image ? products.image : 'default.png' %>" alt="p1" class="product_img"></a>
 
                         
                         <div class="main-article">
