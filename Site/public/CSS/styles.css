@@ -165,17 +165,36 @@ main section article img{
     font-weight: bold;
 }
 
-.discount,
-.description{
+.discount{
     font-size: 16px;
     font-weight: normal;
 }
 
 
 .description{
+    font-size: 18px;
+    font-weight: bold;
     color: #666;
      margin-top: 20px;
     width: 90%;
+
+}
+
+.descriptionLarge,
+.category,
+.brand{
+    font-size: 16px;
+    color: #666;
+     margin-top: 20px;
+    width: 90%;
+}
+
+.modifyButton{
+    position: absolute;
+    padding: .5rem;
+    background-color: coral;
+    right: 20px;
+    bottom: -1px;
 }
 
 .fa-music{
@@ -476,7 +495,7 @@ text-align: center;
     flex-wrap: wrap;
 }
 
-.cartResume h4{
+.cartResume {
     width: 45% ;
     justify-content: space-between;
 }

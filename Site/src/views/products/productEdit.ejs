@@ -12,11 +12,11 @@
             <%- include("../partials/bannerTop.ejs")%>
             <section class="containerEdit">
                 
-                <form action="/" method="POST">
-                    <input size="40" type="text" name="name" placeholder="Nombre de Producto" style="border-radius: 5px;">
+                <form action="/products/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                    <input size="40" type="text" name="name" value="<%= product.name %>" style="border-radius: 5px;">
                     <br>
                     <br>
-                    <textarea name="Descripcion" id="" cols="33" rows="5" placeholder="Descripción del producto" style="border-radius: 5px;"></textarea>
+                    <textarea name="Descripcion" id=""  cols="33" rows="5"  style="border-radius: 5px;"><%= product.description %></textarea>
                     <br>
                     <br>
                     <h4>Foto de producto</h4>
@@ -53,11 +53,11 @@
                     <br>
                     <br>
 
-                    <input size="40" type="text" name="brand" placeholder="Marca del Producto" style="border-radius: 5px;">
+                    <input size="40" type="text" name="brand" value="<%= product.brand %>" style="border-radius: 5px;">
                     <br>
                     <br>
-                    <input type="number" step="any"  name="price" min="1" placeholder="Valor de Producto" style="border-radius: 5px;">
-                    <input type="number" step="any"  name="discount" min="0" max="100" placeholder="Descuento %" style="border-radius: 5px;">
+                    <input type="number" step="any"  name="price" min="1" value="<%= product.price %>" style="border-radius: 5px;">
+                    <input type="number" step="any"  name="discount" min="0" max="100" value="<%= product.discount %>" style="border-radius: 5px;">
                     <br>
                     <br>
                     <div class="editButtons">

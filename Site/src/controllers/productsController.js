@@ -22,12 +22,14 @@ module.exports = {
         if (req.file) {
             product.image = req.file.filename;
         } else {
-            res.send('La imagen es obligatoria');
+            //res.send('La imagen es obligatoria');
+            default_img = path.join(__dirname, '../../public/images/products/default.png');
+            product.image = default_img;
         }
         
         let productId = productsTable.create(product);
         
-        res.redirect('products/productDetail' + productId);
+        res.redirect('products/productDetail/' + productId);
     },
     productDetail: (req, res) => {
         let product = productsTable.find(req.params.id);

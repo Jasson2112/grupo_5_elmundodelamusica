@@ -18,17 +18,19 @@
                         <div class="main-articleDetail">                                                   
                             <img src="/images/products/<%= product.image ? product.image : 'default.png' %>" alt="p1" class="product_img">
                             <i class="fas fa-music"></i>
-                            <p class="price"><%= product.price %></p>
-                            <p class="finalPrice"><%= product.finalPrice %></p>
-                            <p class="discount"><%= product.discount %> off</p>
+                            <p class="price">$ <%= product.price %></p>
+                            <p class="finalPrice">$ <%= product.price - product.price * product.discount /100 %></p>
+                            <p class="discount"><%= product.discount %>% off</p>
                         </div>     
                         <div class="main-articleDetail">
                             <h4 class="description"><%= product.name %></h4>
                             <i class="fas fa-cart-arrow-down"  ></i>
-                            <p class="descriptionLarge"><%= product.description %></p>
+                            <h5 class="descriptionLarge"><%= product.description %></h5>
+                            <p class="category"><%= product.category %></p>
+                            <p class="brand"><%= product.brand %></p>
                         </div>   
                         <div>
-                            <a href="../productEdit/<%= product.id %>"><button>Modificar</button></a> 
+                            <a href="../productEdit/<%= product.id %>" ><button class="modifyButton">Modificar</button></a> 
                             
                         </div>      
                     </article>

@@ -7,7 +7,7 @@ const multer = require('multer');
 
 const storage = multer.diskStorage({
     destination: (req, file, callback) => {
-        callback(null, path.join(__dirname, '../../public/image/products/'));
+        callback(null, path.join(__dirname, '../../public/images/products/'));
     },
     filename: (req, file, callback) => {
         // Mejor usar algo como esto en lugar de Date.now()
