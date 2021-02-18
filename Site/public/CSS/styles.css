@@ -302,6 +302,13 @@ text-align: center;
     main section div.products article{
         width: 50%;
     }
+    .cartResume h5{
+        width: 55% ;
+    }
+    .cartValue{
+        width: 35% ;
+        text-align: left;
+    }
 }
 
 @media (min-width: 768px){
@@ -496,17 +503,21 @@ text-align: center;
 }
 
 .cartResume {
-    width: 45% ;
+     
     justify-content: space-between;
 }
 
 .cartResume h5{
-    width: 45% ;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    width: 35% ;
     justify-content: space-between;
 }
 
 .cartValue{
     text-align: right;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 .cartResume h2{

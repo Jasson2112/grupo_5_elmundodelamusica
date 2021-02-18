@@ -30,12 +30,12 @@
   "image": "Producto-3.jpg"
  },
  {
-  "name": "Bajo",
-  "description": "Bajo electrico 4 cuerdas",
-  "price": "1000",
-  "discount": "10",
-  "category": "bajo",
-  "brand": "Gibson",
+  "name": "Bajo modificado",
+  "description": "Bajo electrico 4 cuerdas modificado",
+  "interests": "a",
+  "brand": "Gibson 1",
+  "price": "10001",
+  "discount": "11",
   "id": 4,
   "image": "Producto-4.jpg"
  },
@@ -50,12 +50,12 @@
   "image": "Producto-5.jpg"
  },
  {
-  "name": "Bajo 6C",
-  "description": "Bajo electrico 6 cuerdas",
-  "price": "3000",
-  "discount": "10",
-  "category": "bajo",
-  "brand": "Fender",
+  "name": "Bajo 6C modificado",
+  "description": "Bajo electrico 6 cuerdas Modificado",
+  "interests": "c",
+  "brand": "Fender modificado",
+  "price": "30001",
+  "discount": "11",
   "id": 6,
   "image": "Producto-6.jpg"
  },
@@ -70,12 +70,11 @@
   "image": "Producto-7.jpg"
  },
  {
-  "name": "Batería 5C",
-  "description": "Batería 5 cuerpos",
-  "price": "2000",
+  "name": "Batería 5C modifi",
+  "description": "estoy modificado",
+  "brand": "Pearl1si",
+  "price": "20001",
   "discount": "10",
-  "category": "bateria",
-  "brand": "Pearl",
   "id": 8,
   "image": "Producto-8.jpg"
  },

@@ -54,13 +54,13 @@ module.exports = {
             product.image = req.file.filename;
         // Si no viene una imagen nueva, busco en base la que ya había
         } else {
-            oldProduct = usersTable.find(product.id);
+            oldProduct = productsTable.find(product.id);
             product.image = oldProduct.image;
         }
 
         let productId = productsTable.update(product);
 
-        res.redirect('products/productDetail' + productId);
+        res.redirect('productDetail/' + productId);
     },
     destroy: (req, res) => {
         let products = productsTable.all()

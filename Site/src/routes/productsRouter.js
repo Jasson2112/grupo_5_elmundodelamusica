@@ -29,7 +29,7 @@ router.get("/productDetail/:id", productController.productDetail);
 
 router.get("/productEdit/:id", productController.productEdit);
 
-router.put("/productEdit/:id", upload.single('image'), productController.update);
+router.put("/:id", upload.single('image'), productController.update);
 
 router.delete('/:id', productController.destroy);
 
