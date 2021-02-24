@@ -30,8 +30,10 @@
                             <p class="brand"><%= product.brand %></p>
                         </div>   
                         <div>
-                            <a href="../productEdit/<%= product.id %>" ><button class="modifyButton">Modificar</button></a> 
-                            
+                            <a href="../productEdit/<%= product.id %>" ><button class="modifyButton">Modificar </button></a> 
+                            <form  action="/products/<%= product.id %>?_method=delete" method="POST">
+                                <button class="deleteProductButton">  Borrar  </button>
+                            </form>
                         </div>      
                     </article>
             </section>

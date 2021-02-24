@@ -190,10 +190,20 @@ main section article img{
 }
 
 .modifyButton{
+    width: 75px;
     position: absolute;
     padding: .5rem;
     background-color: coral;
     right: 20px;
+    bottom: -1px;
+}
+
+.deleteProductButton{
+    width: 75px;
+    position: absolute;
+    padding: .5rem;
+    background-color: red;
+    right: 120px;
     bottom: -1px;
 }
 
