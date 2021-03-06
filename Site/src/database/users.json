@@ -4,7 +4,7 @@
      "last_name": "Editado",
      "email": "un@email.com",
      "password": "123456",
-     "category": "vendedor",
+     "category": "user",
      "id": 1,
      "image": null
     },
@@ -13,7 +13,7 @@
      "last_name": "Shorey",
      "email": "rshorey3@theatlantic.com",
      "password": "789123",
-     "category": "vendedor",
+     "category": "user",
      "id": 2,
      "image": null
     },
@@ -23,7 +23,7 @@
      "last_name": "Eberdt",
      "email": "teberdt7@gizmodo.com",
      "password": "3jRjK81",
-     "category": "vendedor",
+     "category": "user",
      "image": null
     },
     {
@@ -32,7 +32,7 @@
      "last_name": "Labram",
      "email": "rlabram9@washington.edu",
      "password": "dWoPzjU8",
-     "category": "vendedor",
+     "category": "user",
      "image": null
     },
     {
@@ -40,7 +40,7 @@
      "last_name": "fulanito",
      "email": "cosme@gmail.com",
      "password": "123456",
-     "category": "vendedor",
+     "category": "admin",
      "id": 5,
      "image": null
     },
@@ -49,7 +49,7 @@
      "last_name": "Lopez",
      "email": "ML@gmail.com",
      "password": "789123",
-     "category": "comprador",
+     "category": "admin",
      "id": 6,
      "image": null
     },
@@ -58,7 +58,7 @@
      "last_name": "Garcia",
      "email": "EG@hotmail.com",
      "password": "123456",
-     "category": "vendedor",
+     "category": "user",
      "id": 7,
      "image": null
     },
@@ -67,7 +67,7 @@
      "last_name": "Fernandez",
      "email": "LF@gmail.com",
      "password": "789123",
-     "category": "vendedor",
+     "category": "user",
      "id": 8,
      "image": null
     },
@@ -76,7 +76,7 @@
      "last_name": "sdafdsafsadsafdsfadsfads",
      "email": "un@email.com",
      "password": "123456",
-     "category": "vendedor",
+     "category": "user",
      "id": 9,
      "image": null
     },
@@ -85,7 +85,7 @@
      "last_name": "Un apellido",
      "email": "otro@email.com",
      "password": "345678",
-     "category": "vendedor",
+     "category": "user",
      "id": 10,
      "image": null
     }

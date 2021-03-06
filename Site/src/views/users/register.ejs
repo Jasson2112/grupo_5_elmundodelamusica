@@ -11,28 +11,43 @@
         <main class="main">
             <%- include("../partials/bannerTop.ejs")%>
             <section class="containerRegister">
-                <form action="/" method="POST">
-                    <input type="text" name="name" placeholder="Nombre y apellido" style="border-radius: 5px;">
-                    <input type="text" name="user" placeholder="Nombre de usuario" style="border-radius: 5px;">
+                <form action="/users" method="POST" enctype="multipart/form-data">
+                    <input type="text" name="first_name" placeholder="Ingrese su Nombre" style="border-radius: 5px;">
+                    <input type="text" name="last_name" placeholder="Ingrese su Apellido" style="border-radius: 5px;">
                     <br>
                     <br>
                     <input type="email" name="email" placeholder="E-mail" style="border-radius: 5px;" size="40">
                     <br>
                     <br>
-                    <label for="birth_date"><b>Fecha de nacimiento</b></label>
-                    <br>
-                    <input type="date" name="birth_date" id="birth_date" style="border-radius: 5px;">
-                    <br>
-                    <br>
-                    <input type="text" name="addres" placeholder="Domicilio" style="border-radius: 5px;" size="40">
-                    <br>
-                    <br>
-                    <h4>Elegí tu foto de usuario</h4>
-                    <input type="file" name="avatar" style="border-radius: 5px;">
-                    <br>
-                    <br>
                     <input type="password" name="pass" placeholder="Elegí tu contraseña" style="border-radius: 5px;">
                     <input type="password" name="pass_confirm" placeholder="Confirmá tu contraseña" style="border-radius: 5px;">
+                    <br>
+                    <br>
+                    <!-- <label for="birth_date"><b>Fecha de nacimiento</b></label> -->
+                    <!-- <br>
+                    <input type="date" name="birth_date" id="birth_date" style="border-radius: 5px;">
+                    <br>
+                    <br> -->
+                    <!-- <input type="text" name="addres" placeholder="Domicilio" style="border-radius: 5px;" size="40">
+                    <br>
+                    <br> -->
+                    <h4>Categoría</h4>
+                    <div class="categ">
+                        <div>
+                            <input type="checkbox" name="category" value="user" >
+                            <label for="a">Usuario</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="category" value="admin" >
+                            <label for="b">Administrador</label>
+                        </div>
+
+                    </div>
+                    
+
+
+                    <h4>Elegí tu foto de usuario</h4>
+                    <input type="file" name="image" style="border-radius: 5px;">
                     <br>
                     <br>
                     <div class="registerButtons">

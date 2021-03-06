@@ -145,5 +145,15 @@
   "discount": "1",
   "image": "C:\\Users\\USER\\Desktop\\DH\\Proyecto Integrador\\El mundo de la musica\\grupo_5_elmundodelamusica\\Site\\public\\images\\products\\default.png",
   "id": 17
+ },
+ {
+  "name": "2",
+  "description": "nuevo 2",
+  "category": "Accesorios",
+  "brand": "pepe",
+  "price": "10",
+  "discount": "10",
+  "image": "default.png",
+  "id": 18
  }
 ]

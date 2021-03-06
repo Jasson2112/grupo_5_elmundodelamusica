@@ -16,14 +16,15 @@ module.exports = {
         res.render('products/productCreate');
     },
     productStore: (req, res) => {
-        // Generamos el nuevo usuario
+        // Generamos el nuevo producto
         let product = req.body;
 
         if (req.file) {
             product.image = req.file.filename;
         } else {
             //res.send('La imagen es obligatoria');
-            default_img = path.join(__dirname, '../../public/images/products/default.png');
+            //default_img = path.join(__dirname, '../../public/images/products/default.png');
+            default_img = ('default.png')
             product.image = default_img;
         }
         
