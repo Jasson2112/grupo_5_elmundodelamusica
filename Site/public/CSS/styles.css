@@ -604,6 +604,73 @@ text-align: center;
 }
 
 
+.userArticle{
+   
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    border-color: black;
+    border-style: solid;
+    align-items: center;
+
+
+
+}
+
+.userImg{
+    width: 30%;
+    border-radius: 50PX;
+    
+}
+
+.userDivImg{
+    width: 30%;
+    margin-top: .5rem ;
+    margin-bottom: .5rem ;
+}
+
+.userInfo{
+    width: 60%;
+    margin-top: .5rem ;
+    margin-bottom: .5rem ;
+}
+
+.userEditButton{
+    border-radius: 5px;
+    margin-top: .1rem ;
+    margin-bottom: .5rem ;
+    padding-top: .1rem ;
+    padding-bottom: .1rem ;
+    width: 100%;
+    color: whitesmoke;
+    background-color: green;    
+}
+
+.deleteUserButton{
+    width: 75px;
+    border-radius: 5px;
+    margin: .2rem;
+    position: absolute;
+    color: whitesmoke;
+    background-color: red;
+    right: 20px;
+    bottom: 10px;
+}
+
+.editUserButton{
+    width: 75px;
+    border-radius: 5px;
+    margin: .2rem;
+    position: absolute;
+    color: whitesmoke;
+    background-color: green;  
+    left: 20px;
+    bottom: 10px;  
+    border: none;
+    box-shadow: 0 0 10px #000;
+}
 
 
 

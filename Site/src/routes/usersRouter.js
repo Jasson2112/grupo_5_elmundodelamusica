@@ -20,11 +20,11 @@ const upload = multer({ storage });
 
 
 
-router.get("/users", userController.users);
+router.get("/", userController.users);
 
 router.get("/register", userController.userCreate);
 
-router.post("/users", upload.single('image'), userController.userRegister);
+router.post("/", upload.single('image'), userController.userRegister);
 
 router.get("/login", userController.login);
 

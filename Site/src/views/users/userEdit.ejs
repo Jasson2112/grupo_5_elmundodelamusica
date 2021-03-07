@@ -9,9 +9,54 @@
     
 
         <main class="main">
-
-            <H1>edit</H1>
+            <%- include("../partials/bannerTop.ejs")%>
+            <section class="containerRegister">
                 
+                <form action="/users/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                    <input type="text" name="first_name" value="<%= user.first_name %>" style="border-radius: 5px;">
+                    <input type="text" name="last_name" value="<%= user.last_name %>" style="border-radius: 5px;">
+                    <br>
+                    <br>
+                    <input type="email" name="email" value="<%= user.email %>" style="border-radius: 5px;" size="40">
+                    <br>
+                    <br>
+                    <input type="password" name="password" value="<%= user.password %>" style="border-radius: 5px;">
+                    <input type="password" name="pass_confirm" placeholder="Confirmá tu contraseña" style="border-radius: 5px;">
+                    <br>
+                    <br>                 
+                    <h4>Categoría</h4>
+                    <div class="categ">
+                        <div>
+                            <input type="checkbox" name="category" value="user" >
+                            <label for="a">Usuario</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="category" value="admin" >
+                            <label for="b">Administrador</label>
+                        </div>
+
+                    </div>
+                    <br>
+                    <br>
+
+
+
+                    <h4>Elegí tu foto de usuario</h4>
+                    <input type="file" name="image" style="border-radius: 5px;">
+                    <br>
+                    <br>    
+                    <br>
+                    <br>                    <br>
+                    <br>               
+                    <div >
+                        <input class="editUserButton" type="submit" value="Editar" >
+                    </div>
+
+                </form>
+                <form  action="/users/<%= user.id %>?_method=delete" method="POST">
+                    <button class="deleteUserButton">  Borrar  </button>
+                </form>
+
             </section>
             <%- include("../partials/bannerBottom.ejs")%>
 

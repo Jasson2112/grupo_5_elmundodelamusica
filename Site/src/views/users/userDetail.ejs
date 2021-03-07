@@ -6,16 +6,42 @@
     <body>
         <%- include("../partials/header.ejs")%>
         
-    
-
         <main class="main">
 
-            <H1>Detail</H1>
+            <section class="container">
+                <h3 class="productosDestacados">Listado de Usuarios</h3>
+                <div class="users">
+                    <article class="userArticle" >     
+                        
+                        
+                            <div class="userDivImg"> 
+                               <img src="/images/users/<%= user.image ? user.image : 'default.png' %>" alt="p1" class="userImg"></a>
+                            </div>    
+                            <div class="userInfo">
+                                <p > Nombre: <%= user.first_name %></p>
+                                <p > Apellido: <%= user.last_name %></p>
+                                <p > Email: <%= user.email %></p>
+                                <p > Password: <%= user.password %></p>
+                                <p > Categoría: <%= user.category %></p>
+                            </div>
+
+                            <div class="editButtons">
+                                <a href="/users/userEdit/<%= user.id %>" ><button class="userEditButton" >Modificar </button></a> 
+                            </div>
+                                               
+                       
+                        
+                    </article>
+    
+                </div>
+
+            </section>  
                 
             </section>
             <%- include("../partials/bannerBottom.ejs")%>
 
-        </main>
+        </main>    
+
 
 
       

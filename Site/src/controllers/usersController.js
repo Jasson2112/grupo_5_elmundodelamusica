@@ -74,7 +74,7 @@ module.exports = {
 
         usersTable.delete(req.params.id);
 
-        res.redirect('/');
+        res.redirect('/users');
     },
 
 

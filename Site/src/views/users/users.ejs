@@ -10,7 +10,36 @@
 
         <main class="main">
 
-            <H1>users</H1>
+            <section class="container">
+                <h3 class="productosDestacados">Listado de Usuarios</h3>
+                <div class="users">
+                    <% users.forEach(users=> { %>
+                    <article class="userArticle" >     
+                        
+                        
+                            <div class="userDivImg"> 
+                               <img src="../images/users/<%= users.image ? users.image : 'default.png' %>" alt="p1" class="userImg"></a>
+                            </div>    
+                            <div class="userInfo">
+                                <p > Nombre: <%= users.first_name %></p>
+                                <p > Apellido: <%= users.last_name %></p>
+                                <p > Email: <%= users.email %></p>
+                                <p > Password: <%= users.password %></p>
+                                <p > Categoría: <%= users.category %></p>
+                            </div>
+
+                            <div class="editButtons">
+                                <a href="../users/userEdit/<%= users.id %>" ><button class="userEditButton" >Modificar </button></a> 
+                            </div>
+                                               
+                       
+                        
+                    </article>
+                    <% }) %> 
+    
+                </div>
+
+            </section>  
                 
             </section>
             <%- include("../partials/bannerBottom.ejs")%>
