@@ -1,9 +1,10 @@
 [
  {
-  "first_name": "Usuario",
-  "last_name": "Editado",
+  "first_name": "modificado",
+  "last_name": "Modificado",
   "email": "un@email.com",
   "password": "123456",
+  "pass_confirm": "123456",
   "category": "user",
   "id": 1,
   "image": null
@@ -90,5 +91,33 @@
   "category": "user",
   "image": "userdefault.png",
   "id": 12
+ },
+ {
+  "first_name": "pr",
+  "last_name": "pppp",
+  "email": "senosfue@bariloche.com",
+  "password": "1234",
+  "pass_confirm": "1234",
+  "category": "user",
+  "image": "userdefault.png",
+  "id": 13
+ },
+ {
+  "first_name": "Jorge",
+  "last_name": "Jorge",
+  "email": "senosfue@bariloche.com",
+  "password": "1234",
+  "category": "user",
+  "image": "userdefault.png",
+  "id": 14
+ },
+ {
+  "first_name": "Jorge",
+  "last_name": "pepepepe",
+  "email": "senosfue@bariloche.com",
+  "password": "123",
+  "category": "user",
+  "image": "userdefault.png",
+  "id": 15
  }
 ]

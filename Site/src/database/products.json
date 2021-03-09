@@ -1,15 +1,5 @@
 [
  {
-  "name": "Gitarra Electrica",
-  "description": "Gitarra electrica rockera",
-  "price": "1000",
-  "discount": "10",
-  "category": "guitarra",
-  "brand": "Gibson",
-  "id": 1,
-  "image": "Producto-1.jpg"
- },
- {
   "name": "Gitarra Criolla",
   "description": "Gitarra criolla origial",
   "price": "2000",
@@ -155,5 +145,15 @@
   "discount": "10",
   "image": "default.png",
   "id": 18
+ },
+ {
+  "name": "grggrg",
+  "description": "grggr",
+  "category": "Guitarra",
+  "brand": "pepe",
+  "price": "",
+  "discount": "",
+  "image": "default.png",
+  "id": 19
  }
 ]

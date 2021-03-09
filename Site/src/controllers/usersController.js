@@ -5,6 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const jsonTable = require('../database/jsonTable');
 const usersTable = jsonTable('users');
+const { validationResult }= require ("express-validator");
 
 module.exports = {
     users: (req, res) => {
@@ -19,6 +20,17 @@ module.exports = {
         res.render('users/register');
     },
     userRegister: (req, res) => {
+        const resultValidation = validationResult(req);
+
+        if (resultValidation.errors.length > 0){
+            return res.render("users/register", {
+                errors: resultValidation.mapped(),
+                oldData: req.body
+            })
+        }
+
+
+
         // Generamos el nuevo producto
         let user = req.body;
 
@@ -61,7 +73,7 @@ module.exports = {
             user.image = req.file.filename;
         // Si no viene una imagen nueva, busco en base la que ya había
         } else {
-            oldUser = usersTable.find(product.id);
+            oldUser = usersTable.find(user.id);
             user.image = oldUser.image;
         }
 

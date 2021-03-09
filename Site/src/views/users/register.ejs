@@ -6,24 +6,53 @@
     <body>
         <%- include("../partials/header.ejs")%>
         
-    
-
         <main class="main">
             <%- include("../partials/bannerTop.ejs")%>
+
+
+
             <section class="containerRegister">
                 <form action="/users" method="POST" enctype="multipart/form-data">
-                    <input type="text" name="first_name" placeholder="Ingrese su Nombre" style="border-radius: 5px;">
-                    <input type="text" name="last_name" placeholder="Ingrese su Apellido" style="border-radius: 5px;">
+                    <input type="text" name="first_name" placeholder="Ingrese su Nombre" style="border-radius: 5px;" class= "<%= locals.errors && errors.first_name ? 'is-invalid' : null %>"
+                    value="<%= locals.oldData ? oldData.first_name : null %>">
+                    
+                    <% if (locals.errors && errors.first_name) { %>
+                        <div class="text-danger">
+                            <%= errors.first_name.msg %>
+                        </div>        
+                    <% } %>
+                    
+                    
+                    <input type="text" name="last_name" placeholder="Ingrese su Apellido" style="border-radius: 5px;" class= "<%= locals.errors && errors.last_name ? 'is-invalid' : null %>" 
+                    value="<%= locals.oldData ? oldData.last_name : null %>">
+                    <% if (locals.errors && errors.last_name) { %>
+                        <div class="text-danger">
+                            <%= errors.last_name.msg %>
+                        </div>        
+                    <% } %>
+
                     <br>
                     <br>
-                    <input type="email" name="email" placeholder="E-mail" style="border-radius: 5px;" size="40">
+                    <input type="email" name="email" placeholder="E-mail" style="border-radius: 5px;" size="40" class= "<%= locals.errors && errors.email ? 'is-invalid' : null %>" 
+                    value="<%= locals.oldData ? oldData.email: null %>">
+                    <% if (locals.errors && errors.email) { %>
+                        <div class="text-danger">
+                            <%= errors.email.msg %>
+                        </div>        
+                    <% } %>
                     <br>
                     <br>
-                    <input type="password" name="password" placeholder="Elegí tu contraseña" style="border-radius: 5px;">
-                    <input type="password" name="pass_confirm" placeholder="Confirmá tu contraseña" style="border-radius: 5px;">
+                    <input type="password" name="password" placeholder="Elegí tu contraseña" style="border-radius: 5px;" class= "<%= locals.errors && errors.password ? 'is-invalid' : null %>">
+                    <% if (locals.errors && errors.password) { %>
+                        <div class="text-danger">
+                            <%= errors.password.msg %>
+                        </div>        
+                    <% } %>
+                    <input type="password"  placeholder="Confirmá tu contraseña" style="border-radius: 5px;">
                     <br>
                     <br>
-                    <!-- <label for="birth_date"><b>Fecha de nacimiento</b></label> -->
+                    <!--name="pass_confirm" 
+                        <label for="birth_date"><b>Fecha de nacimiento</b></label> -->
                     <!-- <br>
                     <input type="date" name="birth_date" id="birth_date" style="border-radius: 5px;">
                     <br>
@@ -43,7 +72,8 @@
                         </div>
 
                     </div>
-                    
+                    <br>
+                    <br>
 
 
                     <h4>Elegí tu foto de usuario</h4>

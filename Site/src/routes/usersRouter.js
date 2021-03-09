@@ -5,6 +5,8 @@ const path = require('path');
 
 const multer = require('multer');
 
+const {body}= require ("express-validator")
+
 const storage = multer.diskStorage({
     destination: (req, file, callback) => {
         callback(null, path.join(__dirname, '../../public/images/users/'));
@@ -17,14 +19,22 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-
+const validations=[
+    body("first_name").notEmpty().withMessage("Dato obligatorio"),
+    body("last_name").notEmpty().withMessage("Dato obligatorio"),
+    body("email")
+        .notEmpty().withMessage("Dato obligatorio").bail()
+        .isEmail().withMessage("debe ser un formato de email válido"),
+    body("password").notEmpty().withMessage("Dato obligatorio"),
+    body("category").notEmpty().withMessage("Dato obligatorio"),
+]
 
 
 router.get("/", userController.users);
 
 router.get("/register", userController.userCreate);
 
-router.post("/", upload.single('image'), userController.userRegister);
+router.post("/", upload.single('image'), validations , userController.userRegister);
 
 router.get("/login", userController.login);
 
