@@ -24,10 +24,14 @@
                     <input type="password" name="pass_confirm" placeholder="Confirmá tu contraseña" style="border-radius: 5px;">
                     <br>
                     <br>                 
-                    <h4>Categoría</h4>
+                    
+                    <% if(user.category == "admin"){ %>
+                        <h4>Categoría</h4>
+                    
+
                     <div class="categ">
                         <div>
-                            <input type="checkbox" name="category" value="user" >
+                            <input type="checkbox"  name="category" value="user" >
                             <label for="a">Usuario</label>
                         </div>
                         <div>
@@ -39,6 +43,10 @@
                     <br>
                     <br>
 
+
+                    <% } %>
+                    
+                   
 
 
                     <h4>Elegí tu foto de usuario</h4>

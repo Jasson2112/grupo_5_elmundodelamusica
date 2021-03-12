@@ -4,7 +4,7 @@
   "description": "Gitarra criolla origial",
   "price": "2000",
   "discount": "10",
-  "category": "guitarra",
+  "category": "Guitarra",
   "brand": "Ibanez",
   "id": 2,
   "image": "Producto-2.jpg"
@@ -14,7 +14,7 @@
   "description": "Gitarra acústica roja",
   "price": "3000",
   "discount": "10",
-  "category": "guitarra",
+  "category": "Guitarra",
   "brand": "Fender",
   "id": 3,
   "image": "Producto-3.jpg"
@@ -24,7 +24,7 @@
   "description": "Bajo electrico 5 cuerdas",
   "price": "100",
   "discount": "10",
-  "category": "bajo",
+  "category": "Bajo",
   "brand": "Ibanez",
   "id": 5,
   "image": "Producto-5.jpg"
@@ -44,26 +44,17 @@
   "description": "Bajo electrico sin clavijero",
   "price": "1000",
   "discount": "10",
-  "category": "bajo",
+  "category": "Bajo",
   "brand": "Gibson",
   "id": 7,
   "image": "Producto-7.jpg"
- },
- {
-  "name": "Batería 5C modifi",
-  "description": "estoy modificado",
-  "brand": "Pearl1si",
-  "price": "20001",
-  "discount": "10",
-  "id": 8,
-  "image": "Producto-8.jpg"
  },
  {
   "name": "Batería Electrica",
   "description": "Batería elctrónica completa",
   "price": "1000",
   "discount": "10",
-  "category": "bateria",
+  "category": "Batería",
   "brand": "Yamaha",
   "id": 9,
   "image": "Producto-9.jpg"
@@ -73,17 +64,17 @@
   "description": "Microfono bidireccional",
   "price": "3000",
   "discount": "10",
-  "category": "microfono",
+  "category": "Accesorio",
   "brand": "Shure",
   "id": 10,
   "image": "Producto-10.jpg"
  },
  {
   "name": "Amplificador",
-  "description": "Amplificador para guitarra",
+  "description": "Amplificador para Guitarra",
   "price": "1000",
   "discount": "10",
-  "category": "amplificador",
+  "category": "Accesorio",
   "brand": "Marshall",
   "id": 11,
   "image": "Producto-11.jpg"
@@ -99,26 +90,8 @@
   "image": "Producto-12.jpg"
  },
  {
-  "name": "perro",
-  "description": "1",
-  "category": "Guitarra",
-  "brand": "1",
-  "price": "1",
-  "discount": "1",
-  "id": 14
- },
- {
-  "name": "gato1",
-  "description": "1",
-  "category": "Guitarra",
-  "brand": "1",
-  "price": "1",
-  "discount": "1",
-  "id": 15
- },
- {
-  "name": "bajo",
-  "description": "bajo 4 c",
+  "name": "Bajo",
+  "description": "Bajo 4 c",
   "category": "Bajo",
   "brand": "pepe",
   "price": "9000",
@@ -137,23 +110,23 @@
   "id": 17
  },
  {
-  "name": "2",
-  "description": "nuevo 2",
-  "category": "Accesorios",
-  "brand": "pepe",
-  "price": "10",
-  "discount": "10",
-  "image": "default.png",
-  "id": 18
- },
+    "name": "Bajo S/Cl",
+    "description": "Bajo electrico sin clavijero",
+    "price": "1000",
+    "discount": "10",
+    "category": "Bajo",
+    "brand": "Gibson",
+    "id": 27,
+    "image": "Producto-7.jpg"
+   },
  {
-  "name": "grggrg",
-  "description": "grggr",
-  "category": "Guitarra",
-  "brand": "pepe",
-  "price": "",
-  "discount": "",
-  "image": "default.png",
-  "id": 19
- }
+    "name": "Bajo S/Cl",
+    "description": "Bajo electrico sin clavijero",
+    "price": "1000",
+    "discount": "10",
+    "category": "Saxo",
+    "brand": "Gibson",
+    "id": 37,
+    "image": "Producto-7.jpg"
+   }
 ]

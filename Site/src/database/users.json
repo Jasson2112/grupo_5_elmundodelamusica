@@ -119,5 +119,14 @@
   "category": "user",
   "image": "userdefault.png",
   "id": 15
+ },
+ {
+  "first_name": "revision",
+  "last_name": "Categoria",
+  "email": "senosfue@bariloche.com",
+  "password": "1234",
+  "category": "User",
+  "image": "userdefault.png",
+  "id": 16
  }
 ]
