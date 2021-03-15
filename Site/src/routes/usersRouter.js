@@ -38,6 +38,8 @@ router.post("/", upload.single('image'), validations , userController.userRegist
 
 router.get("/login", userController.login);
 
+router.post("/login", userController.loginProcess);
+
 router.get("/userDetail/:id", userController.userDetail);
 
 router.get("/userEdit/:id", userController.userEdit);

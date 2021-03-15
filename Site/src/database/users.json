@@ -1,132 +1,20 @@
 [
  {
-  "first_name": "modificado",
-  "last_name": "Modificado",
-  "email": "un@email.com",
-  "password": "123456",
-  "pass_confirm": "123456",
-  "category": "user",
-  "id": 1,
-  "image": null
- },
- {
-  "id": 3,
-  "first_name": "Tiphanie",
-  "last_name": "Eberdt",
-  "email": "teberdt7@gizmodo.com",
-  "password": "3jRjK81",
-  "category": "user",
-  "image": null
- },
- {
-  "first_name": "Cosme",
-  "last_name": "fulanito",
-  "email": "cosme@gmail.com",
-  "password": "123456",
-  "category": "admin",
-  "id": 5,
-  "image": null
- },
- {
-  "first_name": "Mengano",
-  "last_name": "Lopez",
-  "email": "ML@gmail.com",
-  "password": "789123",
-  "category": "admin",
-  "id": 6,
-  "image": null
- },
- {
-  "first_name": "Elvio",
-  "last_name": "Garcia",
-  "email": "EG@hotmail.com",
-  "password": "123456",
-  "category": "user",
-  "id": 7,
-  "image": null
- },
- {
-  "first_name": "Leo",
-  "last_name": "Fernandez",
-  "email": "LF@gmail.com",
-  "password": "789123",
-  "category": "user",
-  "id": 8,
-  "image": null
- },
- {
-  "first_name": "adfasdfsdafadf",
-  "last_name": "sdafdsafsadsafdsfadsfads",
-  "email": "un@email.com",
-  "password": "123456",
-  "category": "user",
-  "id": 9,
-  "image": null
- },
- {
-  "first_name": "Un nombre",
-  "last_name": "Un apellido",
-  "email": "otro@email.com",
-  "password": "345678",
-  "category": "user",
-  "id": 10,
-  "image": null
- },
- {
-  "first_name": "Agustin",
-  "last_name": "Bariloche",
+  "first_name": "Juan",
+  "last_name": "Pablo",
   "email": "senosfue@bariloche.com",
-  "pass": "1234",
-  "pass_confirm": "1234",
-  "category": "user",
-  "image": "userdefault.png",
-  "id": 11
- },
- {
-  "first_name": "Diego",
-  "last_name": "lopez",
-  "email": "senosfue@bariloche.com",
-  "pass": "1234",
-  "pass_confirm": "1234",
-  "category": "user",
-  "image": "userdefault.png",
-  "id": 12
- },
- {
-  "first_name": "pr",
-  "last_name": "pppp",
-  "email": "senosfue@bariloche.com",
-  "password": "1234",
-  "pass_confirm": "1234",
-  "category": "user",
-  "image": "userdefault.png",
-  "id": 13
- },
- {
-  "first_name": "Jorge",
-  "last_name": "Jorge",
-  "email": "senosfue@bariloche.com",
-  "password": "1234",
-  "category": "user",
-  "image": "userdefault.png",
-  "id": 14
- },
- {
-  "first_name": "Jorge",
-  "last_name": "pepepepe",
-  "email": "senosfue@bariloche.com",
-  "password": "123",
-  "category": "user",
-  "image": "userdefault.png",
-  "id": 15
- },
- {
-  "first_name": "revision",
-  "last_name": "Categoria",
-  "email": "senosfue@bariloche.com",
-  "password": "1234",
+  "password": "$2a$10$lbpCtUYLMaF6vFC.RitjNOxWxYglmg.JekxwV0F.V6VvJ2Ul6WEsK",
   "category": "User",
   "image": "userdefault.png",
-  "id": 16
+  "id": 1
+ },
+ {
+  "first_name": "Javier",
+  "last_name": "Herrera",
+  "email": "javi@dh.com",
+  "password": "$2a$10$YcRq2MBDfS5mJbHPfti01OK3NPf0vEBImVPS.iBtRhw3SQvJBwimq",
+  "category": "User",
+  "image": "userdefault.png",
+  "id": 2
  }
 ]

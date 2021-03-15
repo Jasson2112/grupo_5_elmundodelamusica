@@ -6,6 +6,7 @@ const path = require('path');
 const jsonTable = require('../database/jsonTable');
 const usersTable = jsonTable('users');
 const { validationResult }= require ("express-validator");
+const bcrypt = require ("bcryptjs")
 
 module.exports = {
     users: (req, res) => {
@@ -29,10 +30,26 @@ module.exports = {
             })
         }
 
+        
 
+        let userInDb = usersTable.findByField("email", req.body.email);
+
+        if (userInDb){
+            return res.render ("users/register",{
+            errors: {
+                email:{
+                    msg:"este mail ya está registrado"
+                }                
+            },
+            oldData: req.body
+
+        });
+        }
 
         // Generamos el nuevo producto
         let user = req.body;
+        user.password = bcrypt.hashSync (user.password , 10)
+        
 
         if (req.file) {
             user.image = req.file.filename;
@@ -49,6 +66,40 @@ module.exports = {
     },
     login: (req,res)=>{
         res.render("users/login");
+    },
+    loginProcess:(req,res)=>{
+        let userToLogin = usersTable.findByField("email", req.body.email)
+
+        if(userToLogin){
+            let isOkPassword = bcrypt.compareSync (req.body.password, userToLogin.password);
+           
+            if (isOkPassword){
+                req.session.userLogged = userToLogin;
+                return res.redirect("../users/userDetail/" + userToLogin.id)
+            }else{
+                return res.render("users/login",{
+                    errors: {
+                        email:{
+                            msg: "Credenciales incorrectas"
+                        }
+                         
+                    }
+                    })
+            }
+
+        }
+        return res.render("users/login",{
+        errors: {
+            email:{
+                msg: "Email no registrado"
+            }
+             
+        }
+        })
+
+
+
+
     },
     userDetail: (req, res) => {
         let user = usersTable.find(req.params.id);

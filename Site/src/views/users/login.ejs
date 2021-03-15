@@ -14,11 +14,16 @@
                 <h3>Ingresá a tu cuenta.</h3>
                 <br>
                 <br>                
-                <form action="/" method="POST">
-                    <input type="text" name="user" placeholder="Ingresá tu usuario" style="border-radius: 5px;" size="40">
+                <form action="/users/login" method="POST">
+                    <input type="email" name="email" placeholder="Ingresá tu email" style="border-radius: 5px;" size="40">
+                    <% if (locals.errors && errors.email) { %>
+                        <div class="text-danger">
+                            <%= errors.email.msg %>
+                        </div>        
+                    <% } %>                    
                     <br>
                     <br>
-                    <input type="password" name="pass" placeholder="Ingresá tu contraseña" style="border-radius: 5px;" size="40">
+                    <input type="password" name="password" placeholder="Ingresá tu contraseña" style="border-radius: 5px;" size="40">
                     <br>
                     <br>
                     <input class="sendButton" type="submit" value="Ingresar" style="border-radius: 5px;">
