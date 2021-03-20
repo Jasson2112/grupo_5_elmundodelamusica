@@ -62,7 +62,7 @@ module.exports = {
         
         let userId = usersTable.create(user);
         
-        res.redirect('users/userDetail/' + userId);
+        res.redirect('users/login');
     },
     login: (req,res)=>{
         res.render("users/login");
@@ -74,8 +74,9 @@ module.exports = {
             let isOkPassword = bcrypt.compareSync (req.body.password, userToLogin.password);
            
             if (isOkPassword){
+                delete userToLogin.password;
                 req.session.userLogged = userToLogin;
-                return res.redirect("../users/userDetail/" + userToLogin.id)
+                return res.redirect("../users/userDetail")
             }else{
                 return res.render("users/login",{
                     errors: {
@@ -96,19 +97,21 @@ module.exports = {
              
         }
         })
-
-
-
-
     },
-    userDetail: (req, res) => {
-        let user = usersTable.find(req.params.id);
+    logout: (req,res)=>{
+        req.session.destroy()
+        return res.redirect("/")
+    },
 
-        if ( user ) {
-            res.render('users/userDetail', { user });
-        } else {
-            res.send('No encontré el usuario');
-        }
+
+    userDetail: (req, res) => {
+
+      
+
+        res.render('users/userDetail' , {
+            user: req.session.userLogged
+        })
+        
     },
     userEdit: (req, res) => {
         let user = usersTable.find(req.params.id);
