@@ -52,6 +52,7 @@ header nav{
     font-size: 15px;
     margin: auto;
     display: none;
+
 }
 
 
@@ -333,6 +334,7 @@ text-align: center;
         justify-content: space-between;
         width: 85%;
         padding: 5px;
+        align-items: center;
     }
     
     nav ul {
@@ -685,10 +687,12 @@ text-align: center;
 .dropdown {
   float: left;
   overflow: hidden;
+  align-items: center;
 }
 
 /* Dropdown button */
 .dropdown .dropbtn {
+    align-items: center;
     border-radius: inherit;
     box-shadow: inherit;
     font-size: 15px;
@@ -735,4 +739,13 @@ text-align: center;
     display: block;
   }
 
+.imgProfile{
+    width: 35px;
+    height: 35px;
+    border-radius: 100%;
+    
+}
 
+.remember_user{
+    font-size: 15px;
+}

@@ -3,7 +3,7 @@
    
 const fs = require('fs');
 const path = require('path');
-const jsonTable = require('../database/jsonTable');
+const jsonTable = require('../models/jsonTable');
 const usersTable = jsonTable('users');
 const { validationResult }= require ("express-validator");
 const bcrypt = require ("bcryptjs")
@@ -76,6 +76,12 @@ module.exports = {
             if (isOkPassword){
                 delete userToLogin.password;
                 req.session.userLogged = userToLogin;
+
+                if(req.body.remember_user){
+                    res.cookie("email", req.body.email, {maxAge: (1000*60) * 2})
+                }
+
+
                 return res.redirect("../users/userDetail")
             }else{
                 return res.render("users/login",{
@@ -99,15 +105,14 @@ module.exports = {
         })
     },
     logout: (req,res)=>{
+        res.clearCookie("email");
         req.session.destroy()
         return res.redirect("/")
     },
 
 
     userDetail: (req, res) => {
-
-      
-
+          
         res.render('users/userDetail' , {
             user: req.session.userLogged
         })

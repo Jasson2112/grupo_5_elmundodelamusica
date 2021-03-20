@@ -2,6 +2,7 @@ const express = require('express');
 const session = require ("express-session")
 const app = express();
 const methodOverride = require('method-override');
+const cookies= require("cookie-parser")
 
 
 app.use(session({
@@ -11,6 +12,8 @@ app.use(session({
 }));
 
 const userLoggedMiddleware = require('./src/middlewares/userLoggedMiddleware');
+
+app.use(cookies());
 
 app.use(userLoggedMiddleware);
 

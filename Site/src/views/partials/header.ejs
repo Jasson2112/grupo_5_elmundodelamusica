@@ -17,8 +17,11 @@
         </ul>
         <ul> 
             <% if(locals.isLogged){%>
-                <div class="dropdown">
-                    <button class="dropbtn">Mi Cuenta
+                <img src="/images/users/<%= locals.userLogged.image%>" alt="" class="imgProfile"> 
+                <div class="dropdown">                    
+                    <button class="dropbtn"> 
+                        
+                        <%= locals.userLogged.first_name %>
                         <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-content">
