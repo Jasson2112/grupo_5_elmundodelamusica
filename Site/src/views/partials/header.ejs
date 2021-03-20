@@ -16,16 +16,20 @@
             <li><a href="../../products/productCreate">Nuevo Producto</a></li>
         </ul>
         <ul> 
-            <div class="dropdown">
-                <button class="dropbtn">Mi Cuenta
-                  <i class="fa fa-caret-down"></i>
-                </button>
-                <div class="dropdown-content">
-                    <a href="../../users/register">Registrate <i class="far fa-id-card"></i></a>
-                    <a href="../../users/login">Ingresá <i class="fas fa-sign-in-alt"></i></a>
-                    <a href="../../users/logout">Salir <i class="far fa-id-card"></i></a>
-                </div>
-              </div>    
+            <% if(locals.isLogged){%>
+                <div class="dropdown">
+                    <button class="dropbtn">Mi Cuenta
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="../../users/login">Mi Perfil <i class="fas fa-sign-in-alt"></i></a>
+                        <a href="../../users/logout">Salir <i class="far fa-id-card"></i></a>
+                    </div>
+                </div>  
+            <% } else { %>  
+                <li><a href="../../users/register">Registrate <i class="far fa-id-card"></i></a></li>
+                <li><a href="../../users/login">Ingresá <i class="fas fa-sign-in-alt"></i></a></li>
+            <% } %>
 
             <li><a href="../../products/productCart">Carrito <i class="fas fa-shopping-basket"></i></a></li>
         </ul>
