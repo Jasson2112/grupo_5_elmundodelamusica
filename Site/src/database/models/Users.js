@@ -34,12 +34,12 @@ module.exports = (sequelize, dataTypes) => {
         paranoid: true
     });
 
-    Users.associate = models => {
-        Users.hasMany(models.Buy, {
+    User.associate = models => {
+        User.hasMany(models.Buy, {
         as: 'userBuy',
         foreignKey: 'user_id'
     }); 
-        Users.belongsTo(models.User_category, {
+        User.belongsTo(models.User_category, {
         as: 'userCategory',
         foreignKey: 'id_category' 
     });       
