@@ -23,9 +23,9 @@ app.set("view engine", "ejs");
 app.set("views","./src/views");
 
 
-const mainRouter = require('./src/routes/mainRouter');
+const mainRouter = require('./src/routes/mainRouter1');
 const usersRouter = require('./src/routes/usersRouter');
-const productsRouter = require('./src/routes/productsRouter');
+const productsRouter = require('./src/routes/productsRouter1');
 
 // Formularios
 app.use(express.urlencoded({ extended: false }));
