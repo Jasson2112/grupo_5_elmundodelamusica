@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    const Buy_det = sequelize.define('Buy_det', {
+    const Buy_detail = sequelize.define('Buy_detail', {
         id: {
             autoIncrement: true,
             primaryKey: true,
@@ -20,19 +20,20 @@ module.exports = (sequelize, dataTypes) => {
  
     }, {
         tableName: 'buy_detail',
+        timestamps: false,
         paranoid: true
     });
 
-        Buy_det.associate = models => {
-            Buy_det.belongsTo(models.Buy, {
+    Buy_detail.associate = (models) => {
+        Buy_detail.belongsTo(models.Buy, {
             as: 'buy',
             foreignKey: 'id_buy'
         }); 
-            Buy_det.belongsTo(models.Products, {
+        Buy_detail.belongsTo(models.Products, {
             as: 'productBuy',
             foreignKey: 'product_id'   
         });    
 
     }
-    return Buy_det;
+    return Buy_detail;
 }

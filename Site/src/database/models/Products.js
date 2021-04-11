@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    const Product = sequelize.define('Product', {
+    const Products = sequelize.define('Products', {
         product_id: {
             autoIncrement: true,
             primaryKey: true,
@@ -28,24 +28,25 @@ module.exports = (sequelize, dataTypes) => {
         }
     }, {
         tableName: 'products',
+        timestamps: false,
         paranoid: true
     });
 
-    Product.associate = models => {
-        Product.hasMany(models.Buy_detail, {
+    Products.associate = models => {
+        Products.hasMany(models.Buy_detail, {
         as: 'productBuy',
         foreignKey: 'product_id'
     }); 
-        Product.belongsTo(models.Product_category, {
+        Products.belongsTo(models.Product_category, {
         as: 'productCategory',
         foreignKey: 'id_category' 
     });
-    Product.belongsTo(models.Product_brand, {
+    Products.belongsTo(models.Product_brand, {
         as: 'productBrand',
         foreignKey: 'id_brand' 
     });    
 
 }
     
-    return Product;
+    return Products;
 }

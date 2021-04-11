@@ -1,20 +1,18 @@
-const fs = require('fs');
-const path = require('path');
-const jsonTable = require('../models/jsonTable');
-const productsTable = jsonTable('products');
+// const fs = require('fs');
+// const path = require('path');
+// const jsonTable = require('../models/jsonTable');
+// const productsTable = jsonTable('products');
 const db = require ("../database/models")
 
 
 module.exports={
     
-    home: (req,res)=>{
-        db.product.findAll()
-        db.Product_cat.findAll()
+    home: (req, res) => {
+        db.Products.findAll({include: [{association: "productCategory"}, {association: "productBrand"}]})
             .then(function(products){
-                return res.render('home', { 
+                return res.render('products/products', { 
                     title: 'Listado de productos', 
-                    products,
-                    product_category       
+                    products,     
                 })
             })
             .catch((errors) => {

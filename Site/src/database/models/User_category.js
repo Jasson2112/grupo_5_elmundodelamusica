@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    const User_cat = sequelize.define('User_cat', {
+    const User_category = sequelize.define('User_category', {
         id_category: {
             autoIncrement: true,
             primaryKey: true,
@@ -11,11 +11,12 @@ module.exports = (sequelize, dataTypes) => {
  
     }, {
         tableName: 'user_category',
+        timestamps: false,
         paranoid: true
     });
 
-    User_cat.associate = models => {
-        User_cat.hasMany(models.Users, {
+    User_category.associate = models => {
+        User_category.hasMany(models.Users, {
         as: 'userCat',
         foreignKey: 'id_category'
     }); 
@@ -23,5 +24,5 @@ module.exports = (sequelize, dataTypes) => {
 
 }
     
-    return User_cat;
+    return User_category;
 }

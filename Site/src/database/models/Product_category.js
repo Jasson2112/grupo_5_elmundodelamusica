@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    const Product_cat = sequelize.define('Product_cat', {
+    const Product_category = sequelize.define('Product_category', {
         id_category: {
             autoIncrement: true,
             primaryKey: true,
@@ -11,15 +11,16 @@ module.exports = (sequelize, dataTypes) => {
  
     }, {
         tableName: 'product_category',
+        timestamps: false,
         paranoid: true
     });
 
-    Product_cat.associate = models => {
-        Product_cat.hasMany(models.Products, {
+    Product_category.associate = models => {
+        Product_category.hasMany(models.Products, {
         as: 'productCat',
         foreignKey: 'id_category'
     }); 
 }
     
-    return Product_cat;
+    return Product_category;
 }

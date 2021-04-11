@@ -8,16 +8,15 @@ module.exports = (sequelize, dataTypes) => {
         date: {
             type: dataTypes.DATE,
         },
-        user_id: {
+        id: {
             type: dataTypes.INTEGER,
         },
- 
     }, {
         tableName: 'buy',
+        timestamps: false,
         paranoid: true
     });
-
-    Buy.associate = models => {
+    Buy.associate = (models) => {
         Buy.belongsTo(models.Users, {
         as: 'buyUser',
         foreignKey: 'user_id'
@@ -26,8 +25,6 @@ module.exports = (sequelize, dataTypes) => {
         as: 'buyDetail',
         foreignKey: 'id_buy'   
     });    
-
-}
-    
+}    
     return Buy;
 }
