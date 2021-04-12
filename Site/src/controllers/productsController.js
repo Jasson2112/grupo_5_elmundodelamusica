@@ -81,10 +81,10 @@ module.exports = {
         let product= db.Products.findByPk(req.params.id)
         let categories= db.Product_category.findAll()
         let brands= db.Product_brand.findAll()
-        Promise.All ([product , categories , brands])
+        Promise.all ([product , categories , brands])
           .then(([product, categories, brands]) => {
             if ( product ) {
-              res.render("products/edit", { product:product, categories:categories, brands:brands });
+              res.render("products/productEdit", { product:product, categories:categories, brands:brands });
             } else {
               res.send('No encontré el producto');
             }           
@@ -102,9 +102,10 @@ module.exports = {
         }
     
           const { id } = req.params.id;
-          const { name, description, price, discount, id_category, id_brand } = req.body;
+          const { name, description,id_category, id_brand, price, discount } = req.body;
           db.Products.findByPk(id)
           .then((product) => {
+            console.log(product)
             const originalImage = product.image;
     
             db.Products.update(

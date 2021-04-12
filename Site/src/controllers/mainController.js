@@ -10,7 +10,7 @@ module.exports={
     home: (req, res) => {
         db.Products.findAll({include: [{association: "productCategory"}, {association: "productBrand"}]})
             .then(function(products){
-                return res.render('products/products', { 
+                return res.render('home', { 
                     title: 'Listado de productos', 
                     products,     
                 })
