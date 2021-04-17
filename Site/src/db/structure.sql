@@ -1,7 +1,7 @@
 /*CREANDO BASE DE DATOS Y TABLES DE EMDLM*/
-create database EMDLM;
+create database EMDLM1;
 
-USE emdlm;
+USE emdlm1;
 
 create table user_category (
 id_category INT NOT NULL AUTO_INCREMENT,
@@ -49,30 +49,6 @@ PRIMARY KEY (product_id),
 FOREIGN KEY (id_category) REFERENCES product_category (id_category),
 FOREIGN KEY (id_brand) REFERENCES product_brand (id_brand)
 );
-
-create table buy (
-id_buy INT NOT NULL AUTO_INCREMENT,
-date DATETIME,
-user_id INT NOT NULL,
-PRIMARY KEY (id_buy),
-FOREIGN KEY (user_id) REFERENCES users (user_id)
-);
-
-create table buy_detail (
-id INT NOT NULL AUTO_INCREMENT,
-id_buy INT NOT NULL,
-product_id INT NOT NULL,
-quantity INT NOT NULL,
-price DECIMAL(8,2),
-PRIMARY KEY (id),
-FOREIGN KEY (id_buy) REFERENCES buy (id_buy),
-FOREIGN KEY (product_id) REFERENCES products (product_id)
-)
-
-
-
-
-
 
 
 

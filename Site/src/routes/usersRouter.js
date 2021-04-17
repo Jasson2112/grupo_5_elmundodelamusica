@@ -30,7 +30,9 @@ const validations=[
         .notEmpty().withMessage("Dato obligatorio").bail()
         .isEmail().withMessage("debe ser un formato de email válido"),
     body("password").notEmpty().withMessage("Dato obligatorio"),
-    body("category").notEmpty().withMessage("Dato obligatorio"),
+    body("id_category").notEmpty().withMessage("Dato obligatorio"),
+    body("tel").notEmpty().withMessage("Dato obligatorio"),
+    body("address").notEmpty().withMessage("Dato obligatorio")
 ]
 
 

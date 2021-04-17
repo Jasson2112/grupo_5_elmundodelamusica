@@ -1,4 +1,3 @@
-	/*SCRIPT DE DATOS EMDLM*/
 INSERT INTO user_category 
 VALUES 
 	(1,"admin"),
@@ -42,23 +41,6 @@ VALUES
 	(3, "Gerardo","Lazo","gerardo@gmail.com","123PEPE", "Pierre 9721", "1128646501","user3.png", 2),
     (4, "Alberto","Paniagua","alberto@gmail.com","Pepo456", "Lavalle 3489", "1108469305","user4.png", 1);
     
-INSERT INTO buy
-VALUES
-	(1,"2021-01-01 12:01:00",1),
-    (2,"2021-10-21 12:01:00",4),
-    (3,"2021-11-09 12:01:00",2),
-    (4,"2021-11-10 12:01:00",3);
-    
-INSERT INTO buy_detail
-VALUES
-	(1, 1, 6, 4, 17870),
-    (2, 1, 1, 1, 12680),
-    (3, 2, 12, 2, 14000),
-    (4, 3, 4, 1, 16800),
-    (5, 3, 8, 3, 22900),
-    (6, 3, 9, 1, 102680),
-    (7, 4, 2, 1, 22340);
-    
-    
+
     
     

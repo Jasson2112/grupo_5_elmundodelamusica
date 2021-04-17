@@ -2,7 +2,7 @@ module.exports ={
   "development": {
     "username": "root",
     "password": null,
-    "database": "emdlm",
+    "database": "emdlm1",
     "host": "localhost",
     "dialect": "mysql",
     "port": 3306

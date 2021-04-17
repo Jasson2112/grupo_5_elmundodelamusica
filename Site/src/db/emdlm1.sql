@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-04-2021 a las 19:07:51
+-- Tiempo de generación: 15-04-2021 a las 01:14:09
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 8.0.1
 
@@ -18,57 +18,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `emdlm`
+-- Base de datos: `emdlm1`
 --
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `buy`
---
-
-CREATE TABLE `buy` (
-  `id_buy` int(11) NOT NULL,
-  `date` datetime DEFAULT NULL,
-  `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `buy`
---
-
-INSERT INTO `buy` (`id_buy`, `date`, `user_id`) VALUES
-(1, '2021-01-01 12:01:00', 1),
-(2, '2021-10-21 12:01:00', 4),
-(3, '2021-11-09 12:01:00', 2),
-(4, '2021-11-10 12:01:00', 3);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `buy_detail`
---
-
-CREATE TABLE `buy_detail` (
-  `id` int(11) NOT NULL,
-  `id_buy` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `price` decimal(8,2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `buy_detail`
---
-
-INSERT INTO `buy_detail` (`id`, `id_buy`, `product_id`, `quantity`, `price`) VALUES
-(1, 1, 6, 4, '17870.00'),
-(2, 1, 1, 1, '12680.00'),
-(3, 2, 12, 2, '14000.00'),
-(4, 3, 4, 1, '16800.00'),
-(5, 3, 8, 3, '22900.00'),
-(6, 3, 9, 1, '102680.00'),
-(7, 4, 2, 1, '22340.00');
 
 -- --------------------------------------------------------
 
@@ -201,21 +152,6 @@ INSERT INTO `user_category` (`id_category`, `name`) VALUES
 --
 
 --
--- Indices de la tabla `buy`
---
-ALTER TABLE `buy`
-  ADD PRIMARY KEY (`id_buy`),
-  ADD KEY `user_id` (`user_id`);
-
---
--- Indices de la tabla `buy_detail`
---
-ALTER TABLE `buy_detail`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_buy` (`id_buy`),
-  ADD KEY `product_id` (`product_id`);
-
---
 -- Indices de la tabla `products`
 --
 ALTER TABLE `products`
@@ -254,18 +190,6 @@ ALTER TABLE `user_category`
 --
 
 --
--- AUTO_INCREMENT de la tabla `buy`
---
-ALTER TABLE `buy`
-  MODIFY `id_buy` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT de la tabla `buy_detail`
---
-ALTER TABLE `buy_detail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
 -- AUTO_INCREMENT de la tabla `products`
 --
 ALTER TABLE `products`
@@ -298,19 +222,6 @@ ALTER TABLE `user_category`
 --
 -- Restricciones para tablas volcadas
 --
-
---
--- Filtros para la tabla `buy`
---
-ALTER TABLE `buy`
-  ADD CONSTRAINT `buy_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
-
---
--- Filtros para la tabla `buy_detail`
---
-ALTER TABLE `buy_detail`
-  ADD CONSTRAINT `buy_detail_ibfk_1` FOREIGN KEY (`id_buy`) REFERENCES `buy` (`id_buy`),
-  ADD CONSTRAINT `buy_detail_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`product_id`);
 
 --
 -- Filtros para la tabla `products`
