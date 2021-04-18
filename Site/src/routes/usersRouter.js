@@ -6,6 +6,7 @@ const path = require('path');
 //Middlewares//
 const loginMiddeleware = require ("../middlewares/loginMiddeleware")
 const authMiddleware = require("../middlewares/authMiddleware")
+const adminMiddeleware = require("../middlewares/adminMiddeleware")
 
 const multer = require('multer');
 
@@ -36,7 +37,7 @@ const validations=[
 ]
 
 
-router.get("/", userController.users);
+router.get("/", adminMiddeleware, userController.users);
 
 router.get("/register", loginMiddeleware, userController.userCreate);
 

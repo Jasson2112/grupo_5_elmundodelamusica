@@ -13,7 +13,12 @@
         <ul>
             <li><a href="../../products/">Productos</a></li>
             <li><a href="../../products/tutorial">Tutoriales</a></li>
-            <li><a href="../../products/productCreate">Nuevo Producto</a></li>
+            <% if(locals.isLogged){%>
+                <% if(locals.userLogged.id_category == 1){%>
+                <li><a href="../../products/productCreate">Nuevo Producto</a></li>
+                <% } %>
+            <% } %>
+            
         </ul>
         <ul> 
             
@@ -22,12 +27,15 @@
                 <div class="dropdown">                    
                     <button class="dropbtn"> 
                         
-                        <%= locals.userLogged.first_name %>
+                        <%= locals.userLogged.first_name%>
                         <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="dropdown-content">
                         <a href="../../users/login">Mi Perfil <i class="fas fa-sign-in-alt"></i></a>
                         <a href="../../users/logout">Salir <i class="far fa-id-card"></i></a>
+                        <% if(locals.userLogged.id_category == 1){%>
+                            <a href="../../users">Usuarios <i class="fas fa-sign-in-alt"></i></a>
+                        <% } %>
                     </div>
                 </div>  
             <% } else { %>  

@@ -31,30 +31,31 @@ module.exports = {
     
     },
     productStore: (req, res) => {
-        // Generamos el nuevo producto
+      let imagen = (req.file) ? req.file.filename : "default.png";
         db.Products.create({
             name: req.body.name,
-            desciption: req.body.desciption,
+            description: req.body.description,
             price: req.body.price,
             discount: req.body.discount,
             id_category: parseInt(req.body.Product_cat),
             id_brand: parseInt(req.body.Product_bra),
-            Function (){
-                if (req.file) {
-                 image = req.file.filename;
-                } else {
-                //res.send('La imagen es obligatoria');
-                //default_img = path.join(__dirname, '../../public/images/products/default.png');
-                default_img = ('default.png')
-                image= default_img;
-                 }
-             }
+            image: imagen,
+            // Function (){
+            //     if (req.file) {
+            //      image = req.file.filename;
+            //     } else {
+            //     //res.send('La imagen es obligatoria');
+            //     //default_img = path.join(__dirname, '../../public/images/products/default.png');
+            //     default_img = ('default.png')
+            //     image= default_img;
+            //      }
+            //  }
         
         })
 
             .then((products) => {
-                res.redirect('products/productDetail/' + db.Products.product_id , {products , product_category})
-    
+                res.redirect('products/')
+                // res.redirect('products/productDetail/' + db.Products.product_id , {products , product_category})
             })
             .catch((errors) => {
                 console.log(errors);
@@ -137,7 +138,7 @@ module.exports = {
     destroy: (req, res) => {
       db.Products.destroy ({
             where: {
-            id: req.params.id,
+            product_id: req.params.id,
             }
         })
         .then(()=> {

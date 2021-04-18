@@ -255,7 +255,10 @@ module.exports = {
         await db.Users.destroy({
           where: { user_id: userDelete },
         });
-
+        if(req.session.userLogged.id_category != 1){
+            res.clearCookie("email");
+            req.session.destroy()
+        }
         res.redirect('/users');
     },
 

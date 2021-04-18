@@ -29,7 +29,13 @@
     
                     <h4>Categoría</h4>
                     <div class="categ">
-                        <div>
+
+                        <select required name="Product_cat">
+                            <% categories.forEach(Product_cat => { %>
+                                <option value="<%= Product_cat.id_category %>" <%= product.id_category === Product_cat.id_category ? 'selected' : '' %> ><%= Product_cat.name %> </option>
+                            <% }) %>
+                        </select>
+                        <!-- <div>
                             <input type="checkbox"  name="category" value="1" id="a" <%= product.id_category == 1 ? 'checked' : ''; %>>
                             <label for="a">Guitarra</label>
                         </div>
@@ -52,13 +58,18 @@
                         <div>
                             <input type="checkbox" name="category" value="6" id="e" <%= product.id_category == 5 ? 'checked' : ''; %>>
                             <label for="e">Microfono</label>
-                        </div>
+                        </div> -->
                     </div>
                     
                     <br>
                     <br>
+                    <select required name="Product_bra">
+                        <% brands.forEach(Product_bra => { %>
+                            <option value="<%= Product_bra.id_brand %>" <%= product.id_brand === Product_bra.id_brand ? 'selected' : '' %> ><%= Product_bra.name %></option>
+                        <% }) %>
+                    </select>
 
-                    <input size="40" type="text" name="brand" value="<%= product.id_brand %>" style="border-radius: 5px;">
+                    <!-- <input size="40" type="text" name="brand" value="<%= product.id_brand %>" style="border-radius: 5px;"> -->
                     <br>
                     <br>
                     <input type="number" step="any"  name="price" min="1" value="<%= product.price %>" style="border-radius: 5px;">
