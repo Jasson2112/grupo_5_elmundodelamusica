@@ -11,7 +11,7 @@ const { Console } = require('console');
 
 module.exports = {
     users: async (req, res) => {
-        let users = await db.Users.findAll()
+        let users = await db.Users.findAll({include: [{association: "userCategory"}]})
 
         res.render('users/users', { 
             title: 'Listado de usuarios', 
@@ -184,7 +184,7 @@ module.exports = {
         
     },
     userEdit: (req, res) => {
-        db.Users.findByPk(req.params.id)
+        db.Users.findByPk(req.params.id, {include: [{association: "userCategory"}]})
           .then(function(user) {
             return res.render('users/userEdit', { user })
           })
@@ -209,44 +209,78 @@ module.exports = {
        
     },
 
-    update: async (req, res) => {
-        const {id} = req.params.id
-        const {
-            first_name,
-            last_name,
-            email,
-            password,
-            address,
-            tel,
-            id_category
-        } = req.body;
+    update: function (req,res) {
+        const resultValidation = validationResult(req);
+        if (resultValidation.errors.length > 0){
+            return res.render("users/userEdit", {
+                errors: resultValidation.mapped(),
+                oldData: req.body
+            })
+        }
+        db.Users.findByPk(req.params.id)
+          .then(function(user) {
+            let pass = (req.body.password) ? bcrypt.hashSync(req.body.password, 10) : user.password;
+            let imagen = (req.file) ? req.file.filename : "userDefault.png";
+            
+            db.Users.update({
+                first_name : req.body.first_name,
+                last_name : req.body.last_name,
+                email : req.body.email,
+                password : pass,
+                address : req.body.address,
+                tel : req.body.tel,
+                image : imagen,
+                id_category : req.body.id_category
+            },{
+                where: {
+                    user_id: req.params.id
+                    }
+            })
+            res.clearCookie("email");
+            req.session.destroy()
+            res.redirect('../users/login')
+
+          })
+          .catch(error => console.log("Falló el acceso a la DB o la edición del usuario", error))
+    
+    // async (req, res) => {
+    //     const {id} = req.params.id
+    //     const {
+    //         first_name,
+    //         last_name,
+    //         email,
+    //         password,
+    //         address,
+    //         tel,
+    //         id_category
+    //     } = req.body;
 
         
-        if (req.file) {
-            let image = req.file.filename;
-        } else {
-            //res.send('La imagen es obligatoria');
-            //default_img = path.join(__dirname, '../../public/images/products/default.png');
-            default_img = ('userdefault.png')
-            let image = default_img;
-        }
+    //     if (req.file) {
+    //         let image = req.file.filename;
+    //     } else {
+    //         //res.send('La imagen es obligatoria');
+    //         //default_img = path.join(__dirname, '../../public/images/products/default.png');
+    //         default_img = ('userdefault.png')
+    //         let image = default_img;
+    //     }
 
 
-        await db.Users.update({
-            first_name,
-            last_name,
-            email,
-            password : bcrypt.hashSync(req.body.password, 10),
-            address,
-            tel,
-            image,
-            id_category
-        },
-        {
-            where: { id: user_id },
-        })   
+    //     await db.Users.update({
+    //         first_name,
+    //         last_name,
+    //         email,
+    //         password : bcrypt.hashSync(req.body.password, 10),
+    //         address,
+    //         tel,
+    //         image,
+    //         id_category
+    //     },
+    //     {
+    //         where: { id: user_id },
+    //     })   
 
-        res.redirect('userDetail/' + id);;
+    //     res.redirect('userDetail/' + id);;
     },
 
     destroy: async (req, res) => {

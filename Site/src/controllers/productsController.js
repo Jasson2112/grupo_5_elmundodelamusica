@@ -1,5 +1,6 @@
 
 const db = require ("../database/models")
+const { validationResult }= require ("express-validator");
 
 module.exports = {
     products: (req, res) => {
@@ -96,44 +97,75 @@ module.exports = {
           });
 },
 
-    update: (req, res) => {
-        let upProduct = req.body;
-        if (req.file) {
-            upProduct.image = req.file.filename;
-        }
-    
-          const { id } = req.params.id;
-          const { name, description,id_category, id_brand, price, discount } = req.body;
-          db.Products.findByPk(id)
-          .then((product) => {
-            console.log(product)
-            const originalImage = product.image;
-    
-            db.Products.update(
-              {
-                name,
-                description,
-                price,
-                discount,
-                id_category,
-                id_brand,
-                image: req.file ? req.file.filename : originalImage,
-              },
-              {
-                where: {
-                  id,
-                },
-              }
-            ).then(() => {
-              res.redirect("productDetail/" + req.params.id);
-            });
+    update: function (req,res) {
+      console.log(req.body)
+      const resultValidation = validationResult(req);
+      if (resultValidation.errors.length > 0){
+          return res.render("users/userEdit", {
+              errors: resultValidation.mapped(),
+              oldData: req.body
           })
-          .catch((errors) => {
-            console.log(errors);
-            res.send("Ha ocurrido un error");
-        });
-
+      }
+      db.Users.findByPk(req.params.id)
+        .then(function(user) {
+          let imagen = (req.file) ? req.file.filename : "default.png";
+          
+          db.Products.update({
+              name : req.body.name,
+              description : req.body.description,
+              price : req.body.price,
+              discount : req.body.discount,
+              id_category : req.body.Product_cat,
+              id_brand : req.body.Product_bra,
+              image : imagen,
+          },{
+              where: {
+                  product_id: req.params.id
+                  }
+          })
+          res.redirect("productDetail/" + req.params.id);
+        })
+        .catch(error => console.log("Falló el acceso a la DB o la edición del producto", error))
     },
+    
+    // (req, res) => {
+    //     let upProduct = req.body;
+    //     if (req.file) {
+    //         upProduct.image = req.file.filename;
+    //     }
+    
+    //       const { id } = req.params.id;
+    //       const { name, description,id_category, id_brand, price, discount } = req.body;
+    //       db.Products.findByPk(id)
+    //       .then((product) => {
+    //         console.log(product)
+    //         const originalImage = product.image;
+    
+    //         db.Products.update(
+    //           {
+    //             name,
+    //             description,
+    //             price,
+    //             discount,
+    //             id_category,
+    //             id_brand,
+    //             image: req.file ? req.file.filename : originalImage,
+    //           },
+    //           {
+    //             where: {
+    //               product_id,
+    //             },
+    //           }
+    //         ).then(() => {
+    //           res.redirect("productDetail/" + req.params.id);
+    //         });
+    //       })
+    //       .catch((errors) => {
+    //         console.log(errors);
+    //         res.send("Ha ocurrido un error");
+    //     });
+
+    // },
 
     destroy: (req, res) => {
       db.Products.destroy ({
