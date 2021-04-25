@@ -194,5 +194,20 @@ module.exports = {
   },
     tutorial: (req,res)=>{
        res.render("products/tutorial");
-}
+},
+  imageDetail:(req,res)=>{
+    db.Products.findByPk(req.params.id , {include: [{association: "productCategory"}, {association: "productBrand"}]})
+  .then((products) => {
+      if ( products ) {
+          res.render('products/imageDetail', {products});
+      } else {
+          res.send('No encontré el producto');
+      }           
+  })
+  .catch((error) => {
+      console.log(error);
+      res.send("Ha ocurrido un error");
+  }); 
+    
+},
 }

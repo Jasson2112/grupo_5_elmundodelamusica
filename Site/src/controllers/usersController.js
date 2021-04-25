@@ -296,5 +296,13 @@ module.exports = {
         res.redirect('/users');
     },
 
+    imageUser:(req, res) => {
+        db.Users.findByPk(req.params.id, {include: [{association: "userCategory"}]})
+          .then(function(user) {
+            return res.render('users/imageUser', { user })
+          })
+          .catch(error => console.log("Falló el acceso a la DB o la edición del usuario", error))
+        }
+
 
 }

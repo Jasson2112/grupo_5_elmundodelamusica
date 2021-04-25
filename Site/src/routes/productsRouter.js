@@ -38,6 +38,8 @@ router.get("/productCart", productController.productCart);
 
 router.get("/tutorial", productController.tutorial);
 
+router.get("/imageDetail/:id", productController.imageDetail);
+
 
 
 

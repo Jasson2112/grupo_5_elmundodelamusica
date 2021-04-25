@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include("../partials/head.ejs")%>
+
+    <body>
+        <%- include("../partials/header.ejs")%>
+        
+    
+
+        <main class="main">
+            <%- include("../partials/bannerTop.ejs")%>
+            <section class="container">
+               
+                    <article>
+                        
+                        <div class="main-articleDetail">                                                   
+                            <img src="/images/users/<%= user.image ? user.image : 'default.png' %>" alt="p1" class="userImg"></a>
+                        </div>     
+
+                    </article>
+            </section>
+            <%- include("../partials/bannerBottom.ejs")%>
+
+        </main>
+
+      
+        <%- include("../partials/footer.ejs")%>
+        
+    
+
+    </body>
+</html>

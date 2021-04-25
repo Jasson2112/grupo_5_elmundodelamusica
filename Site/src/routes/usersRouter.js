@@ -7,6 +7,7 @@ const path = require('path');
 const loginMiddeleware = require ("../middlewares/loginMiddeleware")
 const authMiddleware = require("../middlewares/authMiddleware")
 const adminMiddeleware = require("../middlewares/adminMiddeleware")
+const userTypeMiddeleware = require("../middlewares/userTypeMiddeleware")
 
 const multer = require('multer');
 
@@ -53,11 +54,13 @@ router.get("/logout", userController.logout);
 
 router.post("/logout", userController.logout);
 
-router.get("/userEdit/:id", userController.userEdit);
+router.get("/userEdit/:id", userTypeMiddeleware, userController.userEdit);
 
 router.put("/:id", upload.single('image'), userController.update);
 
 router.delete('/:id', userController.destroy);
+
+router.get("/imageUser/:id",  userController.imageUser);
 
 
 
