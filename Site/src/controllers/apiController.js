@@ -197,5 +197,46 @@ module.exports = {
                     })
             })
     },
+    categories (req, res) {
+        db.Product_category.findAll({include: [{association: "productCat"}]})
+            .then(categories => {
+
+                arrayCategories = []
+
+                function category (id_category, name){
+                    this.id_category= id_category
+                    this.name = name;
+                };
+                var categorias= {}
+                for(i=0; i<categories.length ; i++){
+                    categorias= new category (
+                        categories[i].id_category,
+                        categories[i].name,
+                        )
+                    arrayCategories.push(categorias)
+                    }
+                
+
+
+                res
+                    .status(200)
+                    .json({ 
+                        meta: {
+                            totalCategories: categories.length
+                        },
+                        data: arrayCategories,
+                        status: STATUS_SUCCESS
+                    })
+            })
+            .catch(error => {
+                res
+                    .status(500)
+                    .json({
+                        status: STATUS_ERROR,
+                        error,
+                    })
+            })
+        
+    }
     
 }
