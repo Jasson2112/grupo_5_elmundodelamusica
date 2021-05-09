@@ -26,15 +26,29 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 const validations=[
-    body("first_name").notEmpty().withMessage("Dato obligatorio"),
-    body("last_name").notEmpty().withMessage("Dato obligatorio"),
+    body("name").notEmpty().withMessage("Dato obligatorio").isLength({ min: 2}).withMessage("Minimo 2 caracteres"),
+    body("first_name").notEmpty().withMessage("Dato obligatorio").isLength({ min: 2}).withMessage("Minimo 2 caracteres"),
+    body("last_name").notEmpty().withMessage("Dato obligatorio").isLength({ min: 2}).withMessage("Minimo 2 caracteres"),
     body("email")
         .notEmpty().withMessage("Dato obligatorio").bail()
         .isEmail().withMessage("debe ser un formato de email válido"),
-    body("password").notEmpty().withMessage("Dato obligatorio"),
+    body("password").notEmpty().withMessage("Dato obligatorio").isLength({ min: 8}).withMessage("Minimo 8 caracteres"),
     body("id_category").notEmpty().withMessage("Dato obligatorio"),
     body("tel").notEmpty().withMessage("Dato obligatorio"),
-    body("address").notEmpty().withMessage("Dato obligatorio")
+    body("address").notEmpty().withMessage("Dato obligatorio"),
+    body("image").custom((value, {req})=>{
+        let file = req.file;
+        let acceptedExtensions = ['.png', '.jpg', '.jpeg', ".gif"];//extensiones permitidas
+        if(file && file.originalname){
+            let extension = path.extname(file.originalname).toLowerCase();
+            if (!acceptedExtensions.includes(extension)){
+                throw new Error ('Debe ser una imagen valida del tipo "png, jpg, jpeg, gif"');
+            };            
+        }
+        return true;
+        //no es obligacion de que suba una imagen
+    })
+
 ]
 
 

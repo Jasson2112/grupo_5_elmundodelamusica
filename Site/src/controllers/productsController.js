@@ -33,6 +33,29 @@ module.exports = {
     },
     productStore: (req, res) => {
       let imagen = (req.file) ? req.file.filename : "default.png";
+
+      const resultValidation = validationResult(req);
+      console.log(resultValidation)
+
+      if (resultValidation.errors.length > 0){
+        let category= db.Product_category.findAll()
+        let brand= db.Product_brand.findAll()
+
+        Promise.all([ category, brand])
+            .then(([categories, brands])=>{
+                    return res.render('products/productCreate', {
+                        errors: resultValidation.mapped(),
+                        oldData: req.body,
+                        categories,
+                        brands
+                      })
+                      .catch((errors) => {
+                        console.log(errors);
+                        res.send("Ha ocurrido un error");
+                      });
+            })
+    }else{
+
         db.Products.create({
             name: req.body.name,
             description: req.body.description,
@@ -41,27 +64,17 @@ module.exports = {
             id_category: parseInt(req.body.Product_cat),
             id_brand: parseInt(req.body.Product_bra),
             image: imagen,
-            // Function (){
-            //     if (req.file) {
-            //      image = req.file.filename;
-            //     } else {
-            //     //res.send('La imagen es obligatoria');
-            //     //default_img = path.join(__dirname, '../../public/images/products/default.png');
-            //     default_img = ('default.png')
-            //     image= default_img;
-            //      }
-            //  }
-        
+                   
         })
 
             .then((products) => {
                 res.redirect('products/')
-                // res.redirect('products/productDetail/' + db.Products.product_id , {products , product_category})
-            })
+                })
             .catch((errors) => {
                 console.log(errors);
                 res.send("Ha ocurrido un error");
             });
+          }
 },
     productDetail: (req, res) => {
       db.Products.findByPk(req.params.id , {include: [{association: "productCategory"}, {association: "productBrand"}]})
@@ -99,17 +112,42 @@ module.exports = {
 
     update: function (req,res) {
       console.log(req.body)
+      let imagen = (req.file) ? req.file.filename : "default.png";
+
       const resultValidation = validationResult(req);
+      let product = req.body;
+      product.product_id = req.params.id
+      
       if (resultValidation.errors.length > 0){
-          return res.render("users/userEdit", {
-              errors: resultValidation.mapped(),
-              oldData: req.body
-          })
-      }
+        let category= db.Product_category.findAll()
+        let brand= db.Product_brand.findAll()
+
+        Promise.all([ category, brand])
+            .then(([categories, brands])=>{
+                    return res.render('products/productEdit', {
+                        errors: resultValidation.mapped(),
+                        oldData: req.body,
+                        categories,
+                        brands,
+                        product
+                      })
+                      .catch((errors) => {
+                        console.log(errors);
+                        res.send("Ha ocurrido un error");
+                      });
+            })
+    }else{
+
+      // const resultValidation = validationResult(req);
+      // if (resultValidation.errors.length > 0){
+      //     return res.render("users/userEdit", {
+      //         errors: resultValidation.mapped(),
+      //         oldData: req.body
+      //     })
+      // }
       db.Users.findByPk(req.params.id)
-        .then(function(user) {
-          let imagen = (req.file) ? req.file.filename : "default.png";
-          
+        .then(function(prod) {
+                    
           db.Products.update({
               name : req.body.name,
               description : req.body.description,
@@ -126,6 +164,7 @@ module.exports = {
           res.redirect("productDetail/" + req.params.id);
         })
         .catch(error => console.log("Falló el acceso a la DB o la edición del producto", error))
+    }
     },
     
     // (req, res) => {

@@ -3,6 +3,7 @@ const STATUS_SUCCESS = 'success'
 const STATUS_ERROR = 'error'
 const STATUS_NOT_FOUND = 'not_found'
 
+
 module.exports = {
     listProducts(req, res) {
         db.Products.findAll({include: [{association: "productCategory"}, {association: "productBrand"}]})
@@ -10,11 +11,12 @@ module.exports = {
 
                 arrayProducts = []
 
-                function product (product_id, name, description, productCategory){
+                function product (product_id, name, description, productCategory, productBrand){
                     this.product_id= product_id;
                     this.name = name;
                     this.description = description;
                     this.productCategory = productCategory;
+                    this.productBrand = productBrand;
                     this.detail = "http://localhost:3030/api/product/"+ product_id;
                 };
                 var productos= {}
@@ -23,6 +25,7 @@ module.exports = {
                         products[i].name,
                         products[i].description,
                         products[i].productCategory,
+                        products[i].productBrand,
                         products[i].detail
                         )
                     arrayProducts.push(productos)
@@ -64,7 +67,7 @@ module.exports = {
                     
                 }
 
-                function newproduct (product_id, name, description, price, discount, productCategory, productBrand){
+                function newproduct (product_id, name, description, price, discount, productCategory, productBrand, image){
                     this.product_id= product_id;
                     this.name = name;
                     this.description = description;
@@ -72,7 +75,7 @@ module.exports = {
                     this.discount = discount;
                     this.productCategory = productCategory;
                     this.productBrand = productBrand;
-                    this.image = "http://localhost:3030/products/imageDetail/" + product_id;
+                    this.image = "http://localhost:3030/images/products/" + image;
                 };
 
                 var producto =  {}
@@ -169,7 +172,7 @@ module.exports = {
                     this.email = email;
                     this.address = address;
                     this.tel = tel;
-                    this.image = "http://localhost:3030/users/imageUser/" + user_id;
+                    this.image = "http://localhost:3030/images/users/" + image;
                 };
                 var usuario =  {}
                 usuario = new newuser (user.user_id,
@@ -237,6 +240,112 @@ module.exports = {
                     })
             })
         
-    }
+    },
+
+    lastProduct(req, res) {
+        db.Products.findAll({include: [{association: "productCategory"}, {association: "productBrand"}]})
+            .then(products => {
+
+                if (!products) {
+                    return res.status(404)
+                    .json({
+                        status: STATUS_NOT_FOUND
+                    })
+                    
+                }
+
+                let last= products[(products.length)-1]
+                console.log(last)
+
+
+                function newproduct (product_id, name, description, price, discount, productCategory, productBrand, image){
+                    this.product_id= product_id;
+                    this.name = name;
+                    this.description = description;
+                    this.price = price;
+                    this.discount = discount;
+                    this.productCategory = productCategory;
+                    this.productBrand = productBrand;
+                    this.image = "http://localhost:3030/images/products/"+image
+                };
+
+                var ultimoProducto =  {}
+                ultimoProducto = new newproduct (last.product_id,
+                        last.name,
+                        last.description,
+                        last.price,
+                        last.discount,
+                        last.productCategory,
+                        last.productBrand,
+                        last.image
+                    )
+
+                res.status(200)
+                    .json({
+                        data: ultimoProducto,
+                        status: STATUS_SUCCESS
+                    })
+            })
+            .catch(error => {
+                res
+                    .status(500)
+                    .json({
+                        status: STATUS_ERROR,
+                        error
+                    })
+            })
+    },
+    productsCategories (req, res) {
+        let category= db.Product_category.findAll({include: [{association: "productCat"}]})
+        let product= db.Products.findAll({include: [{association: "productCategory"}]})
+
+        Promise.all([ category, product])
+        .then(([categories, products])=>{
+
+        arrayProductsCategories = []
+
+                function productCategory (name, qty){
+                    this.name= name
+                    this.qty = qty;
+        };
+
+        for (var i = 0; i < categories.length; i++) {
+            let contador=0
+            for (var j = 0; j < products.length; j++) {
+              if (categories[i].id_category == products[j].id_category) {
+                contador = contador + 1;
+              }
+            }
+            productosCategorias= new productCategory (
+                categories[i].name,
+                contador
+                )
+            arrayProductsCategories.push(productosCategorias)
+            
+          }
+
+        
+
+
+                         
+
+
+                res
+                    .status(200)
+                    .json({ 
+                        data: arrayProductsCategories,
+                        status: STATUS_SUCCESS
+                    })
+            })
+            .catch(error => {
+                res
+                    .status(500)
+                    .json({
+                        status: STATUS_ERROR,
+                        error,
+                    })
+            })
+        
+    },
     
 }
