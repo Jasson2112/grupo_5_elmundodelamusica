@@ -112,7 +112,7 @@ module.exports = {
 
     update: function (req,res) {
       console.log(req.body)
-      let imagen = (req.file) ? req.file.filename : "default.png";
+      let imagen = (req.file) ? req.file.filename : req.body.oldProductImage;
 
       const resultValidation = validationResult(req);
       let product = req.body;

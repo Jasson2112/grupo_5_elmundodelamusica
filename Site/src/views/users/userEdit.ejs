@@ -77,11 +77,11 @@
 
                         <div class="categ">
                             <div>
-                                <input type="checkbox"  name="id_category" value="2" <%= user.id_category == 2 ? 'checked' : ''; %>>
+                                <input type="radio"  name="id_category" value="2" <%= user.id_category == 2 ? 'checked' : ''; %>>
                                 <label for="a">Usuario</label>
                             </div>
                             <div>
-                                <input type="checkbox" name="id_category" value="1" <%= user.id_category == 1 ? 'checked' : ''; %> >
+                                <input type="radio" name="id_category" value="1" <%= user.id_category == 1 ? 'checked' : ''; %> >
                                 <label for="b">Administrador</label>
                             </div>
 
@@ -98,6 +98,7 @@
 
                     <h4>Elegí tu foto de usuario</h4>
                     <input type="file" name="image" style="border-radius: 5px;">
+                    <input type="hidden" name="oldImage" value= "<%= user.image %>" style="border-radius: 5px;">
                     <% if (locals.errors && errors.image) { %>
                         <div class="text-danger">
                             <%= errors.image.msg %>

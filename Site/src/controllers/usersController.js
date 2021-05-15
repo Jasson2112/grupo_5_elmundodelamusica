@@ -210,7 +210,7 @@ module.exports = {
     },
 
     update: function (req,res) {
-        let imagen = (req.file) ? req.file.filename : "userDefault.png";
+        let imagen = (req.file) ? req.file.filename : req.body.oldImage;
 
         const resultValidation = validationResult(req);
         console.log(resultValidation)
@@ -247,28 +247,27 @@ module.exports = {
                 where: {
                     user_id: req.params.id
                     }
-            }           
-            )
+            },        
+            console.log("1")   
+            )       
             
+                      
             
-
-            
-
-           
             // res.clearCookie("email");
             // req.session.destroy()
             // res.redirect('../users/login')
-
-          })
-          .catch(error => console.log("Falló el acceso a la DB o la edición del usuario", error))
-        }
-
+            
+        })
+        .catch(error => console.log("Falló el acceso a la DB o la edición del usuario", error))
+    }
         db.Users.findByPk(req.session.userLogged.user_id, {include: [{association: "userCategory"}]})
-            .then(function(user){
+            .then(function(userAct){
                 res.clearCookie()
-                req.session.userLogged=user
+                delete userAct.password;
+                req.session.userLogged=userAct
                 res.redirect('../users/userDetail')
-                console.log(user)
+                console.log("2")
+                console.log(userAct)
             })
             
     // async (req, res) => {
