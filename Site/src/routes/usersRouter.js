@@ -26,7 +26,6 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 const validations=[
-    body("name").notEmpty().withMessage("Dato obligatorio").isLength({ min: 2}).withMessage("Minimo 2 caracteres"),
     body("first_name").notEmpty().withMessage("Dato obligatorio").isLength({ min: 2}).withMessage("Minimo 2 caracteres"),
     body("last_name").notEmpty().withMessage("Dato obligatorio").isLength({ min: 2}).withMessage("Minimo 2 caracteres"),
     body("email")
@@ -70,7 +69,7 @@ router.post("/logout", userController.logout);
 
 router.get("/userEdit/:id", userTypeMiddeleware, userController.userEdit);
 
-router.put("/:id", upload.single('image'), userController.update);
+router.put("/:id", upload.single('image'), validations , userController.update);
 
 router.delete('/:id', userController.destroy);
 

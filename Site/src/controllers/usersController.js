@@ -210,17 +210,29 @@ module.exports = {
     },
 
     update: function (req,res) {
+        let imagen = (req.file) ? req.file.filename : "userDefault.png";
+
         const resultValidation = validationResult(req);
+        console.log(resultValidation)
+        
         if (resultValidation.errors.length > 0){
-            return res.render("users/userEdit", {
-                errors: resultValidation.mapped(),
-                oldData: req.body
+            db.Users.findByPk(req.params.id, {include: [{association: "userCategory"}]})
+            .then(function(user){
+                    return res.render("users/userEdit", {
+                        errors: resultValidation.mapped(),
+                        oldData: req.body,
+                        user
+                    })
+                    .catch((errors) => {
+                        console.log(errors);
+                        res.send("Ha ocurrido un error");
+                      });
             })
-        }
+        } else {
         db.Users.findByPk(req.params.id)
           .then(function(user) {
             let pass = (req.body.password) ? bcrypt.hashSync(req.body.password, 10) : user.password;
-            let imagen = (req.file) ? req.file.filename : "userDefault.png";
+            
             
             db.Users.update({
                 first_name : req.body.first_name,
@@ -235,14 +247,30 @@ module.exports = {
                 where: {
                     user_id: req.params.id
                     }
-            })
-            res.clearCookie("email");
-            req.session.destroy()
-            res.redirect('../users/login')
+            }           
+            )
+            
+            
+
+            
+
+           
+            // res.clearCookie("email");
+            // req.session.destroy()
+            // res.redirect('../users/login')
 
           })
           .catch(error => console.log("Falló el acceso a la DB o la edición del usuario", error))
-    
+        }
+
+        db.Users.findByPk(req.session.userLogged.user_id, {include: [{association: "userCategory"}]})
+            .then(function(user){
+                res.clearCookie()
+                req.session.userLogged=user
+                res.redirect('../users/userDetail')
+                console.log(user)
+            })
+            
     // async (req, res) => {
     //     const {id} = req.params.id
     //     const {

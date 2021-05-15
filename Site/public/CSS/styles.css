@@ -323,6 +323,11 @@ text-align: center;
 }
 
 @media (min-width: 768px){
+    .finalPrice{
+        
+        width: 80%;
+        
+    }
 
     main section div.products article{
         width: 33%;
@@ -748,4 +753,12 @@ text-align: center;
 
 .remember_user{
     font-size: 15px;
+}
+
+.prueba{
+    background-color: green;
+}
+
+.prueba1{
+    background-color: red;
 }

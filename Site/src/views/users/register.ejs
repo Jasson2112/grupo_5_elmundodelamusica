@@ -51,7 +51,8 @@
                     <input type="password"  placeholder="Confirmá tu contraseña" style="border-radius: 5px;">
                     <br>
                     <br>
-                    <input type="string" name="address" placeholder="Dirección" style="border-radius: 5px;" class= "<%= locals.errors && errors.address ? 'is-invalid' : null %>">
+                    <input type="string" name="address" placeholder="Dirección" style="border-radius: 5px;" class= "<%= locals.errors && errors.address ? 'is-invalid' : null %>"
+                    value="<%= locals.oldData ? oldData.address : null %>">
                     <% if (locals.errors && errors.address) { %>
                         <div class="text-danger">
                             <%= errors.address.msg %>
@@ -59,7 +60,8 @@
                     <% } %>
                     <br>
                     <br>
-                    <input type="number" name="tel" placeholder="Teléfono" style="border-radius: 5px;" class= "<%= locals.errors && errors.tel ? 'is-invalid' : null %>">
+                    <input type="number" name="tel" placeholder="Teléfono" style="border-radius: 5px;" class= "<%= locals.errors && errors.tel ? 'is-invalid' : null %>"
+                    value="<%= locals.oldData ? oldData.tel : null %>">
                     <% if (locals.errors && errors.tel) { %>
                         <div class="text-danger">
                             <%= errors.tel.msg %>
@@ -71,7 +73,13 @@
                     <input type="hidden" name="id_category" value= "2"  >    
 
                     <h4>Elegí tu foto de usuario</h4>
-                    <input type="file" name="image" style="border-radius: 5px;">
+                    <input type="file" name="image" style="border-radius: 5px;" class= "<%= locals.errors && errors.image ? 'is-invalid' : null %>">
+                    <% if (locals.errors && errors.image) { %>
+                        <div class="text-danger">
+                            <%= errors.image.msg %>
+                        </div>        
+                    <% } %>
+                    
                     <br>
                     <br>
                     <div class="registerButtons">

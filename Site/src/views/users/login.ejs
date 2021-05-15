@@ -14,8 +14,8 @@
                 <h3>Ingresá a tu cuenta.</h3>
                 <br>
                 <br>                
-                <form action="/users/login" method="POST">
-                    <input type="email" name="email" placeholder="Ingresá tu email" style="border-radius: 5px;" size="40">
+                <form action="/users/login" method="POST" id="formLogin" >
+                    <input type="email" id="email" name="email" placeholder="Ingresá tu email" style="border-radius: 5px;" size="40" >
                     <% if (locals.errors && errors.email) { %>
                         <div class="text-danger">
                             <%= errors.email.msg %>
@@ -23,7 +23,7 @@
                     <% } %>                    
                     <br>
                     <br>
-                    <input type="password" name="password" placeholder="Ingresá tu contraseña" style="border-radius: 5px;" size="40">
+                    <input type="password" id="password" name="password" placeholder="Ingresá tu contraseña" style="border-radius: 5px;" size="40">
                     <br>
                     <br>
                     <label for="" class="remember_user">
