@@ -1,5 +1,6 @@
 
 window.addEventListener("load",function(e){
+    
 
     let mailformat = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;//expresion para validar mail
     let numberformat = /^[0-9]+$/; //expresion para validar numeros
