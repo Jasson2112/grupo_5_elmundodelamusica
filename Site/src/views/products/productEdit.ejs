@@ -12,8 +12,8 @@
             <%- include("../partials/bannerTop.ejs")%>
             <section class="containerEdit">
                 
-                <form action="/products/<%= product.product_id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-                    <input size="40" type="text" name="name" value="<%= product.name %>" style="border-radius: 5px;"class= "<%= locals.errors && errors.name ? 'is-invalid' : null %>"
+                <form action="/products/<%= product.product_id %>?_method=PUT"  id="formProductEdit" method="POST" enctype="multipart/form-data">
+                    <input size="40" type="text" id="name" name="name" value="<%= product.name %>" style="border-radius: 5px;"class= "<%= locals.errors && errors.name ? 'is-invalid' : null %>"
                     value="<%= locals.oldData ? oldData.name : null %>">
                     <% if (locals.errors && errors.name) { %>
                         <div class="text-danger">
@@ -22,7 +22,7 @@
                     <% } %>
                     <br>
                     <br>
-                    <textarea name="description" id=""  cols="33" rows="5"  style="border-radius: 5px;"class= "<%= locals.errors && errors.description? 'is-invalid' : null %>"
+                    <textarea name="description" id="description"  cols="33" rows="5"  style="border-radius: 5px;"class= "<%= locals.errors && errors.description? 'is-invalid' : null %>"
                         value="<%= locals.oldData ? oldData.description : null %>"><%= product.description %></textarea>
                         <% if (locals.errors && errors.description) { %>
                             <div class="text-danger">
@@ -33,7 +33,7 @@
                     <br>
                     <h4>Foto de producto</h4>
                     
-                    <input type="file" name="image" style="border-radius: 5px;" value="<%= product.image %>"class= "<%= locals.errors && errors.image? 'is-invalid' : null %>"
+                    <input type="file" id="image" name="image" style="border-radius: 5px;" value="<%= product.image %>"class= "<%= locals.errors && errors.image? 'is-invalid' : null %>"
                     value="<%= locals.oldData ? oldData.image: null %>">
                     <input type="hidden" name="oldProductImage" value= "<%= product.image %>" style="border-radius: 5px;">
                     <% if (locals.errors && errors.image) { %>
@@ -91,14 +91,14 @@
                     <!-- <input size="40" type="text" name="brand" value="<%= product.id_brand %>" style="border-radius: 5px;"> -->
                     <br>
                     <br>
-                    <input type="number" step="any"  name="price" min="1" value="<%= product.price %>" style="border-radius: 5px;"class= "<%= locals.errors && errors.price? 'is-invalid' : null %>"
+                    <input type="number" id="price" step=".01"  name="price" min=".01" value="<%= product.price %>" style="border-radius: 5px;"class= "<%= locals.errors && errors.price? 'is-invalid' : null %>"
                     value="<%= locals.oldData ? oldData.price: null %>">
                     <% if (locals.errors && errors.price) { %>
                         <div class="text-danger">
                             <%= errors.price.msg %>
                         </div>        
                     <% } %>
-                    <input type="number" step="any"  name="discount" min="0" max="100" value="<%= product.discount %>" style="border-radius: 5px;"class= "<%= locals.errors && errors.discount? 'is-invalid' : null %>"
+                    <input type="number" step=".01" id="discount" name="discount" min="0" max="1" value="<%= product.discount %>" style="border-radius: 5px;"class= "<%= locals.errors && errors.discount? 'is-invalid' : null %>"
                     value="<%= locals.oldData ? oldData.discount: null %>">
                     <% if (locals.errors && errors.discount) { %>
                         <div class="text-danger">

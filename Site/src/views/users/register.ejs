@@ -12,8 +12,8 @@
 
 
             <section class="containerRegister">
-                <form action="/users" method="POST" enctype="multipart/form-data">
-                    <input type="text" name="first_name" placeholder="Ingrese su Nombre" style="border-radius: 5px;" class= "<%= locals.errors && errors.first_name ? 'is-invalid' : null %>"
+                <form action="/users" method="POST" enctype="multipart/form-data" id="formRegister">
+                    <input type="text" id="name" name="first_name" placeholder="Ingrese su Nombre" style="border-radius: 5px;" class= "<%= locals.errors && errors.first_name ? 'is-invalid' : null %>"
                     value="<%= locals.oldData ? oldData.first_name : null %>">
                     
                     <% if (locals.errors && errors.first_name) { %>
@@ -23,7 +23,7 @@
                     <% } %>
                     
                     
-                    <input type="text" name="last_name" placeholder="Ingrese su Apellido" style="border-radius: 5px;" class= "<%= locals.errors && errors.last_name ? 'is-invalid' : null %>" 
+                    <input type="text" id="lastName" name="last_name" placeholder="Ingrese su Apellido" style="border-radius: 5px;" class= "<%= locals.errors && errors.last_name ? 'is-invalid' : null %>" 
                     value="<%= locals.oldData ? oldData.last_name : null %>">
                     <% if (locals.errors && errors.last_name) { %>
                         <div class="text-danger">
@@ -33,7 +33,7 @@
 
                     <br>
                     <br>
-                    <input type="email" name="email" placeholder="E-mail" style="border-radius: 5px;" size="40" class= "<%= locals.errors && errors.email ? 'is-invalid' : null %>" 
+                    <input type="email" id="email" name="email" placeholder="E-mail" style="border-radius: 5px;" size="40" class= "<%= locals.errors && errors.email ? 'is-invalid' : null %>" 
                     value="<%= locals.oldData ? oldData.email: null %>">
                     <% if (locals.errors && errors.email) { %>
                         <div class="text-danger">
@@ -42,7 +42,7 @@
                     <% } %>
                     <br>
                     <br>
-                    <input type="password" name="password" placeholder="Elegí tu contraseña" style="border-radius: 5px;" class= "<%= locals.errors && errors.password ? 'is-invalid' : null %>">
+                    <input type="password" id="password" name="password" placeholder="Elegí tu contraseña" style="border-radius: 5px;" class= "<%= locals.errors && errors.password ? 'is-invalid' : null %>">
                     <% if (locals.errors && errors.password) { %>
                         <div class="text-danger">
                             <%= errors.password.msg %>
@@ -51,7 +51,7 @@
                     <input type="password"  placeholder="Confirmá tu contraseña" style="border-radius: 5px;">
                     <br>
                     <br>
-                    <input type="string" name="address" placeholder="Dirección" style="border-radius: 5px;" class= "<%= locals.errors && errors.address ? 'is-invalid' : null %>"
+                    <input type="string" id="address" name="address" placeholder="Dirección" style="border-radius: 5px;" class= "<%= locals.errors && errors.address ? 'is-invalid' : null %>"
                     value="<%= locals.oldData ? oldData.address : null %>">
                     <% if (locals.errors && errors.address) { %>
                         <div class="text-danger">
@@ -60,7 +60,7 @@
                     <% } %>
                     <br>
                     <br>
-                    <input type="number" name="tel" placeholder="Teléfono" style="border-radius: 5px;" class= "<%= locals.errors && errors.tel ? 'is-invalid' : null %>"
+                    <input type="number" id="tel" name="tel" placeholder="Teléfono" style="border-radius: 5px;" class= "<%= locals.errors && errors.tel ? 'is-invalid' : null %>"
                     value="<%= locals.oldData ? oldData.tel : null %>">
                     <% if (locals.errors && errors.tel) { %>
                         <div class="text-danger">
@@ -73,7 +73,7 @@
                     <input type="hidden" name="id_category" value= "2"  >    
 
                     <h4>Elegí tu foto de usuario</h4>
-                    <input type="file" name="image" style="border-radius: 5px;" class= "<%= locals.errors && errors.image ? 'is-invalid' : null %>">
+                    <input type="file" id="image" name="image" style="border-radius: 5px;" class= "<%= locals.errors && errors.image ? 'is-invalid' : null %>">
                     <% if (locals.errors && errors.image) { %>
                         <div class="text-danger">
                             <%= errors.image.msg %>

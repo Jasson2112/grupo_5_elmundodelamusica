@@ -11,8 +11,8 @@
         <main class="main">
             <%- include("../partials/bannerTop.ejs")%>
             <section class="containerRegister">
-                <form action="/users/<%= user.user_id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-                    <input type="text" name="first_name" value="<%= user.first_name %>" style="border-radius: 5px;"
+                <form action="/users/<%= user.user_id %>?_method=PUT" id="formEdit" method="POST" enctype="multipart/form-data">
+                    <input type="text" id="name" name="first_name" value="<%= user.first_name %>" style="border-radius: 5px;"
                     class= "<%= locals.errors && errors.first_name ? 'is-invalid' : null %>">
                     <% if (locals.errors && errors.first_name) { %>
                         <div class="text-danger">
@@ -20,7 +20,7 @@
                         </div>        
                     <% } %>
 
-                    <input type="text" name="last_name" value="<%= user.last_name %>" style="border-radius: 5px;"
+                    <input type="text" id="lastName" name="last_name" value="<%= user.last_name %>" style="border-radius: 5px;"
                     class= "<%= locals.errors && errors.last_name ? 'is-invalid' : null %>">
                     <% if (locals.errors && errors.last_name) { %>
                         <div class="text-danger">
@@ -29,7 +29,7 @@
                     <% } %>
                     <br>
                     <br>
-                    <input type="email" name="email" value="<%= user.email %>" style="border-radius: 5px;" size="40"
+                    <input type="email" id="email" name="email" value="<%= user.email %>" style="border-radius: 5px;" size="40"
                     class= "<%= locals.errors && errors.email ? 'is-invalid' : null %>">
                     <% if (locals.errors && errors.email) { %>
                         <div class="text-danger">
@@ -38,7 +38,7 @@
                     <% } %>
                     <br>
                     <br>
-                    <input type="password" name="password" placeholder="ingresá tu contraseña" style="border-radius: 5px;"
+                    <input type="password" id="password" name="password" placeholder="ingresá tu contraseña" style="border-radius: 5px;"
                     class= "<%= locals.errors && errors.password ? 'is-invalid' : null %>">
                     <% if (locals.errors && errors.password) { %>
                         <div class="text-danger">
@@ -51,7 +51,7 @@
                     
                     <br>
                     <br>
-                    <input type="text" name="address" value="<%= user.address %>" style="border-radius: 5px;"
+                    <input type="text" id="address" name="address" value="<%= user.address %>" style="border-radius: 5px;"
                     class= "<%= locals.errors && errors.address ? 'is-invalid' : null %>">
                     <% if (locals.errors && errors.address) { %>
                         <div class="text-danger">
@@ -59,7 +59,7 @@
                         </div>        
                     <% } %>
 
-                    <input type="text" name="tel" value="<%= user.tel %>" style="border-radius: 5px;"
+                    <input type="text" id="tel" name="tel" value="<%= user.tel %>" style="border-radius: 5px;"
                     class= "<%= locals.errors && errors.tel ? 'is-invalid' : null %>">
                     <% if (locals.errors && errors.tel) { %>
                         <div class="text-danger">
@@ -97,7 +97,7 @@
                    
 
                     <h4>Elegí tu foto de usuario</h4>
-                    <input type="file" name="image" style="border-radius: 5px;">
+                    <input type="file" id="image" name="image" style="border-radius: 5px;">
                     <input type="hidden" name="oldImage" value= "<%= user.image %>" style="border-radius: 5px;">
                     <% if (locals.errors && errors.image) { %>
                         <div class="text-danger">
