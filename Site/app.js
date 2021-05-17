@@ -44,5 +44,3 @@ app.use("/api", apiRouter);
 app.listen(process.env.PORT || 3030    , ()=>{
     console.log('Servidor funcionando');
 });
-
-

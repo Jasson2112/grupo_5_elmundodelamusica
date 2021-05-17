@@ -135,6 +135,7 @@ window.addEventListener("load",function(e){
         let lastName= document.querySelector("#lastName"); 
         let email= document.querySelector("#email"); 
         let password= document.querySelector("#password");
+        let repeatPassword= document.querySelector("#repeatpassword");
         let address=document.querySelector("#address"); 
         let tel=document.querySelector("#tel");
         let image= document.querySelector("#image");  
@@ -142,13 +143,14 @@ window.addEventListener("load",function(e){
         let validationLastName= false;
         let validationEmail= false;
         let validationPassword= false;
+        let validationRepeatPassword= false;
         let validationAddress= false;
         let validationTel= false;
         let validationImage= true;
         
         form.addEventListener('submit', function(e){                       
             if(validationName && validationLastName && validationPassword && validationEmail 
-                && validationAddress && validationTel && validationImage){
+                && validationAddress && validationTel && validationImage && validationRepeatPassword){
                 console.log('las validaciones fueron correctas');
             }else{
                 e.preventDefault();
@@ -337,6 +339,53 @@ window.addEventListener("load",function(e){
             }
 
         })
+
+
+        repeatPassword.addEventListener('focus', function(){
+            if( (repeatPassword.value.length > 7) && (repeatPassword.value === password.value) ){
+                repeatPassword.classList.add("ok")
+                repeatPassword.classList.remove("bad")
+                validationRepeatPassword= true
+                console.log("prueba")
+            }else{
+                repeatPassword.classList.add("bad")
+                repeatPassword.classList.remove("ok")
+                console.log("prueba1")
+                validationRepeatPassword= false
+            }
+
+        }),
+
+        repeatPassword.addEventListener('input', function(){
+            if( (repeatPassword.value.length > 7) && (repeatPassword.value === password.value) ){
+                repeatPassword.classList.add("ok")
+                repeatPassword.classList.remove("bad")
+                validationRepeatPassword= true
+                console.log("prueba")
+            }else{
+                repeatPassword.classList.add("bad")
+                repeatPassword.classList.remove("ok")
+                console.log("prueba1")
+                validationRepeatPassword= false
+            }
+
+        }),
+
+        repeatPassword.addEventListener('blur', function(){
+            if( (repeatPassword.value.length > 7) && (repeatPassword.value === password.value) ){
+                repeatPassword.classList.add("ok")
+                repeatPassword.classList.remove("bad")
+                validationRepeatPassword= true
+                console.log("prueba")
+            }else{
+                repeatPassword.classList.add("bad")
+                repeatPassword.classList.remove("ok")
+                console.log("prueba1")
+                validationRepeatPassword= false
+            }
+
+        })
+
 
         address.addEventListener('focus', function(){
             if(address.value.length>2){
@@ -485,6 +534,7 @@ window.addEventListener("load",function(e){
         let lastName= document.querySelector("#lastName"); 
         let email= document.querySelector("#email"); 
         let password= document.querySelector("#password");
+        let repeatPassword= document.querySelector("#repeatpassword");
         let address=document.querySelector("#address"); 
         let tel=document.querySelector("#tel");
         let image= document.querySelector("#image");  
@@ -492,13 +542,14 @@ window.addEventListener("load",function(e){
         let validationLastName= true;
         let validationEmail= true;
         let validationPassword= false;
+        let validationRepeatPassword= false;
         let validationAddress= true;
         let validationTel= true;
         let validationImage= true;
         
         form.addEventListener('submit', function(e){                       
             if(validationName && validationLastName && validationPassword && validationEmail 
-                && validationAddress && validationTel && validationImage){
+                && validationAddress && validationTel && validationImage && validationRepeatPassword){
                 console.log('las validaciones fueron correctas');
             }else{
                 e.preventDefault();
@@ -684,6 +735,51 @@ window.addEventListener("load",function(e){
                 password.classList.remove("ok")
                 console.log("prueba1")
                 validationPassword= false
+            }
+
+        })
+
+        repeatPassword.addEventListener('focus', function(){
+            if( (repeatPassword.value.length > 7) && (repeatPassword.value === password.value) ){
+                repeatPassword.classList.add("ok")
+                repeatPassword.classList.remove("bad")
+                validationRepeatPassword= true
+                console.log("prueba")
+            }else{
+                repeatPassword.classList.add("bad")
+                repeatPassword.classList.remove("ok")
+                console.log("prueba1")
+                validationRepeatPassword= false
+            }
+
+        }),
+
+        repeatPassword.addEventListener('input', function(){
+            if( (repeatPassword.value.length > 7) && (repeatPassword.value === password.value) ){
+                repeatPassword.classList.add("ok")
+                repeatPassword.classList.remove("bad")
+                validationRepeatPassword= true
+                console.log("prueba")
+            }else{
+                repeatPassword.classList.add("bad")
+                repeatPassword.classList.remove("ok")
+                console.log("prueba1")
+                validationRepeatPassword= false
+            }
+
+        }),
+
+        repeatPassword.addEventListener('blur', function(){
+            if( (repeatPassword.value.length > 7) && (repeatPassword.value === password.value) ){
+                repeatPassword.classList.add("ok")
+                repeatPassword.classList.remove("bad")
+                validationRepeatPassword= true
+                console.log("prueba")
+            }else{
+                repeatPassword.classList.add("bad")
+                repeatPassword.classList.remove("ok")
+                console.log("prueba1")
+                validationRepeatPassword= false
             }
 
         })

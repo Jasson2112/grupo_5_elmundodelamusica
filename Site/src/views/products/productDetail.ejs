@@ -18,9 +18,9 @@
                         <div class="main-articleDetail">                                                   
                             <img src="/images/products/<%= products.image ? products.image : 'default.png' %>" alt="p1" class="product_img">
                             <i class="fas fa-music"></i>
-                            <p class="price">$ <%= products.price %></p>
+                            <p class="price">$ <%= Math.round(products.price) %></p>
                             <p class="finalPrice">$ <%= products.price - products.price * products.discount /100 %></p>
-                            <p class="discount"><%= products.discount %>% off</p>
+                            <p class="discount"><%= products.discount*100 %>% off</p>
                         </div>     
                         <div class="main-articleDetail">
                             <h4 class="description"><%= products.name %></h4>

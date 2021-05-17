@@ -49,7 +49,7 @@
                             <%= errors.password.msg %>
                         </div>        
                     <% } %>
-                    <input type="password"  placeholder="Confirmá tu contraseña" style="border-radius: 5px;">
+                    <input type="password" id="repeatpassword" placeholder="Confirmá tu contraseña" style="border-radius: 5px;">
                     <br>
                     <br>
                     <input type="string" id="address" name="address" placeholder="Dirección" style="border-radius: 5px;" class= "<%= locals.errors && errors.address ? 'is-invalid' : null %>"

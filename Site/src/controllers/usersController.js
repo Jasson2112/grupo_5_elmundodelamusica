@@ -25,21 +25,8 @@ module.exports = {
 
 
         
-        console.log(req.body.category)
-        
-        // const Validation = validationResult(req.body)
-        // console.log(Validation)
+       
         const resultValidation = validationResult(req);
-        console.log(resultValidation)
-
-        // if (Validation.errors.length > 0){
-        //     console.log(req.body)
-        //     return res.render("users/register", {
-        //         errors: Validation.mapped(),
-        //         oldData: req.body
-        //     })
-        // }
-
         if (resultValidation.errors.length > 0){
             return res.render("users/register", {
                 errors: resultValidation.mapped(),
@@ -55,8 +42,7 @@ module.exports = {
         })
 
             .then(userInDb => {
-                console.log(userInDb)
-                if (userInDb){
+                    if (userInDb){
                     return res.render ("users/register",{
                     errors: {
                         email:{
@@ -73,28 +59,11 @@ module.exports = {
                 {console.log(error)}
             }); 
 
-        
-
-        
-
-
-        // Generamos el nuevo producto
-
         let imagen = (req.file) ? req.file.filename : "userDefault.png";
         let pass = bcrypt.hashSync(req.body.password, 10)
-        console.log(pass)
-        // if (req.file) {
-        //     var image = req.file.filename;
-        // } else {
-        //     //res.send('La imagen es obligatoria');
-        //     //default_img = path.join(__dirname, '../../public/images/products/default.png');
-        //     default_img = ('userdefault.png')
-        //     var image = default_img;
-        // }
-        
-        
-        console.log(req.body)
 
+  
+        
         db.Users.create({
             first_name : req.body.first_name,
             last_name : req.body.last_name,
@@ -189,23 +158,7 @@ module.exports = {
             return res.render('users/userEdit', { user })
           })
           .catch(error => console.log("Falló el acceso a la DB o la edición del usuario", error))
-
-
-        
-                // db.Users.findByPk(req.params.id , {include: [{association: "userCategory"}]})
-                //   .then((user) => {
-                //       if ( user ) {
-                //           res.render('users/userEdit/', {user});
-                //       } else {
-                //           res.send('No encontré el usuario');
-                //       }           
-                //   })
-                //   .catch((error) => {
-                //       console.log(error);
-                //       res.send("Ha ocurrido un error");
-                //   }); 
-                        
-              
+    
        
     },
 
@@ -213,7 +166,6 @@ module.exports = {
         let imagen = (req.file) ? req.file.filename : req.body.oldImage;
 
         const resultValidation = validationResult(req);
-        console.log(resultValidation)
         
         if (resultValidation.errors.length > 0){
             db.Users.findByPk(req.params.id, {include: [{association: "userCategory"}]})
@@ -248,67 +200,22 @@ module.exports = {
                     user_id: req.params.id
                     }
             },        
-            console.log("1")   
             )       
             
-                      
-            
-            // res.clearCookie("email");
-            // req.session.destroy()
-            // res.redirect('../users/login')
-            
+
+            .then(function() {          
+                db.Users.findByPk(req.session.userLogged.user_id, {include: [{association: "userCategory"}]})
+                .then(function(userAct){
+                    res.clearCookie()
+                    delete userAct.password;
+                    req.session.userLogged=userAct
+                    res.redirect('../users/userDetail')
+                })
+            })
         })
         .catch(error => console.log("Falló el acceso a la DB o la edición del usuario", error))
     }
-        db.Users.findByPk(req.session.userLogged.user_id, {include: [{association: "userCategory"}]})
-            .then(function(userAct){
-                res.clearCookie()
-                delete userAct.password;
-                req.session.userLogged=userAct
-                res.redirect('../users/userDetail')
-                console.log("2")
-                console.log(userAct)
-            })
-            
-    // async (req, res) => {
-    //     const {id} = req.params.id
-    //     const {
-    //         first_name,
-    //         last_name,
-    //         email,
-    //         password,
-    //         address,
-    //         tel,
-    //         id_category
-    //     } = req.body;
-
-        
-    //     if (req.file) {
-    //         let image = req.file.filename;
-    //     } else {
-    //         //res.send('La imagen es obligatoria');
-    //         //default_img = path.join(__dirname, '../../public/images/products/default.png');
-    //         default_img = ('userdefault.png')
-    //         let image = default_img;
-    //     }
-
-
-    //     await db.Users.update({
-    //         first_name,
-    //         last_name,
-    //         email,
-    //         password : bcrypt.hashSync(req.body.password, 10),
-    //         address,
-    //         tel,
-    //         image,
-    //         id_category
-    //     },
-    //     {
-    //         where: { id: user_id },
-    //     })   
-
-    //     res.redirect('userDetail/' + id);;
-    },
+ },
 
     destroy: async (req, res) => {
         let userDelete = req.params.id;

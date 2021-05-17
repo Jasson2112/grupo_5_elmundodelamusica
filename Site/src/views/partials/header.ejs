@@ -9,18 +9,18 @@
 
     </div>
  
-    <nav>
-        <ul>
-            <li><a href="../../products/">Productos</a></li>
-            <li><a href="../../products/tutorial">Tutoriales</a></li>
+    <nav id="nav-bar" class="nav-bar navmargin">
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="../../products/">Productos</a></li>
+            <li class="nav-item"><a href="../../products/tutorial">Tutoriales</a></li>
             <% if(locals.isLogged){%>
                 <% if(locals.userLogged.id_category == 1){%>
-                <li><a href="../../products/productCreate">Nuevo Producto</a></li>
+                <li class="nav-item"><a href="../../products/productCreate">Nuevo Producto</a></li>
                 <% } %>
             <% } %>
             
         </ul>
-        <ul> 
+        <ul class="nav-menu"> 
             
             <% if(locals.isLogged){%>
                 <img src="/images/users/<%= locals.userLogged.image%>" alt="" class="imgProfile"> 
@@ -39,18 +39,26 @@
                     </div>
                 </div>  
             <% } else { %>  
-                <li><a href="../../users/register">Registrate <i class="far fa-id-card"></i></a></li>
-                <li><a href="../../users/login">Ingresá <i class="fas fa-sign-in-alt"></i></a></li>
+                <li class="nav-item"><a href="../../users/register">Registrate <i class="far fa-id-card"></i></a></li>
+                <li class="nav-item"><a href="../../users/login">Ingresá <i class="fas fa-sign-in-alt"></i></a></li>
             <% } %>
 
-            <li><a href="../../products/productCart">Carrito <i class="fas fa-shopping-basket"></i></a></li>
+            <li class="nav-item"><a href="../../products/productCart">Carrito <i class="fas fa-shopping-basket"></i></a></li>
         </ul>
     </nav>
 
     
     <div class="burger-menu">
-        <button ><i class="fa fa-bars burger"></i></button>
+        <button id= "burger"><i class="fa fa-bars burger"></i></button>
     </div>
-
+    
+    <script> 
+    const burger = document.querySelector("#burger"); 
+    const navbar = document.getElementById("nav-bar");
+    burger.addEventListener("click", mobileMenu);
+    function mobileMenu () {
+        navbar.classList.toggle("nav-bar");
+    }
+    </script>
 
 </header>
