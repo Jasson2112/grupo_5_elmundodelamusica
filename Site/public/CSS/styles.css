@@ -5,10 +5,10 @@
 }
 
 body{
-    font-family: 'Roboto', sans-serif;
-    background-color: #ebebeb;    
-}
+    font-family: 'Permanent Marker', cursive;
+    background-color: #ebebeb;   
 
+}
 
 .header{
     background-image: linear-gradient(180deg, red, rgb(255, 187, 0));
@@ -70,6 +70,7 @@ header ul li a{
     padding: 5px;
     display: block;
     padding-bottom: 10px;
+    margin-left: 1rem;
     
 }
 
@@ -117,7 +118,8 @@ section.banner img{
     margin-bottom: 1rem;
     text-align: center;
     padding-top: 1rem;
-    font-size: 30px;
+    font-size: 35px;
+    font-family: 'Permanent Marker', cursive;
 }
 
 main section article img{
@@ -163,6 +165,13 @@ main section article img{
     border-radius: 10px;
 }
 
+.discount-trampa{
+    color: white;
+    padding: 8px;
+    background-color: white;
+    border-radius: 10px;
+}
+
 .finalPrice{
     font-size: 18px;
     width: 50%;
@@ -176,12 +185,22 @@ main section article img{
 }
 
 
+.description-detail{
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(189, 91, 0);
+     margin-top: 20px;
+    width: 90%;
+
+}
+
 .description{
     font-size: 18px;
     font-weight: bold;
-    color: #666;
+    color: rgb(0, 0, 0);
      margin-top: 20px;
     width: 90%;
+    font-family: 'Permanent Marker', cursive;
 
 }
 
@@ -344,7 +363,7 @@ text-align: center;
         width: 85%;
         padding: 5px;
         align-items: center;
-        font-size: 15px;
+        font-size: 18px;
         margin: auto;
     }
     
@@ -427,7 +446,7 @@ text-align: center;
     width: 80%;
     display: flex;
     flex-wrap: wrap;
-
+    font-family: 'Permanent Marker', cursive;
     margin-left: auto;
     margin-right: auto;
     align-items: baseline;
@@ -713,6 +732,7 @@ text-align: center;
     padding: 5px;
     padding-bottom: 0px;
     background-color: inherit;
+    font-family: 'Permanent Marker', cursive;
   /* font-family: inherit; /* Important for vertical align on mobile phones
   margin: 0; Important for vertical align on mobile phones */
 }

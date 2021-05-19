@@ -5,7 +5,7 @@ window.addEventListener("load",function(e){
     let mailformat = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;//expresion para validar mail
     let numberformat = /^[0-9]+$/; //expresion para validar numeros
     let extensionformat = (/\.(jpeg|jpg|png|gif)$/i) //expresion para validar extensión de fotos
-    let decimalformat= /^[-+]?[0-9]+\.[0-9]+$/
+    let decimalformat= /^[0-9]+$/;
 
     let form = selectForm();
     console.log("entrè")
@@ -1129,7 +1129,7 @@ window.addEventListener("load",function(e){
         })
 
         discount.addEventListener('focus', function(){
-            if((discount.value.match(decimalformat)) && (discount.value<=1)){
+            if((discount.value.match(decimalformat)) && (discount.value<=100)){
                 discount.classList.add("ok")
                 discount.classList.remove("bad")
                 validationDiscount= true
@@ -1144,7 +1144,7 @@ window.addEventListener("load",function(e){
         }),
 
         discount.addEventListener('input', function(){
-            if((discount.value.match(decimalformat)) && (discount.value<=1)){
+            if((discount.value.match(decimalformat)) && (discount.value<=100)){
                 discount.classList.add("ok")
                 discount.classList.remove("bad")
                 validationDiscount= true
@@ -1160,7 +1160,7 @@ window.addEventListener("load",function(e){
         }),
 
         discount.addEventListener('blur', function(){
-            if((discount.value.match(decimalformat)) && (discount.value<=1)){
+            if((discount.value.match(decimalformat)) && (discount.value<=100)){
                 discount.classList.add("ok")
                 discount.classList.remove("bad")
                 validationDiscount= true
@@ -1381,7 +1381,7 @@ window.addEventListener("load",function(e){
         })
 
         discount.addEventListener('focus', function(){
-            if((discount.value.match(decimalformat)) && (discount.value<=1)){
+            if((discount.value.match(decimalformat)) && (discount.value<=100)){
                 discount.classList.add("ok")
                 discount.classList.remove("bad")
                 validationDiscount= true
@@ -1396,7 +1396,7 @@ window.addEventListener("load",function(e){
         }),
 
         discount.addEventListener('input', function(){
-            if((discount.value.match(decimalformat)) && (discount.value<=1)){
+            if((discount.value.match(decimalformat)) && (discount.value<=100)){
                 discount.classList.add("ok")
                 discount.classList.remove("bad")
                 validationDiscount= true
@@ -1412,7 +1412,7 @@ window.addEventListener("load",function(e){
         }),
 
         discount.addEventListener('blur', function(){
-            if((discount.value.match(decimalformat)) && (discount.value<=1)){
+            if((discount.value.match(decimalformat)) && (discount.value<=100)){
                 discount.classList.add("ok")
                 discount.classList.remove("bad")
                 validationDiscount= true

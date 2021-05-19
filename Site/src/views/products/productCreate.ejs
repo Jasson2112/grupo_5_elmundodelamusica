@@ -101,7 +101,7 @@
                             <%= errors.price.msg %>
                         </div>        
                     <% } %>
-                    <input type="number" step=".01" id="discount" name="discount" min="0" max="1" placeholder="Descuento %" style="border-radius: 5px;"class= "<%= locals.errors && errors.discount? 'is-invalid' : null %>"
+                    <input type="number" step="1" id="discount" name="discount" min="0" max="100" placeholder="Descuento %" style="border-radius: 5px;"class= "<%= locals.errors && errors.discount? 'is-invalid' : null %>"
                     value="<%= locals.oldData ? oldData.discount: null %>">
                     <% if (locals.errors && errors.discount) { %>
                         <div class="text-danger">

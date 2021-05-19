@@ -23,9 +23,18 @@
                         <div class="main-article">
                             
                             <i class="fas fa-music"></i>
+                            <% if (products.discount > 0){ %>
                             <p class="price">$ <%= Math.round(products.price) %></p>
-                            <p class="finalPrice">$ <%= Math.round(products.price - products.price * products.discount /100) %></p>
-                            <p class="discount"><%= products.discount*100 %>% off</p>
+                            <% } else{ %> 
+                                <p style= "color: white">$ <%= Math.round(products.price) %></p>  
+                                <% } %> 
+
+                            <p class="finalPrice">$ <%= Math.round(products.price - (products.price * products.discount / 100)) %></p>
+                            <% if (products.discount > 0){ %>
+                            <p class="discount"><%= products.discount %>% off</p>
+                            <% } else{ %> 
+                                <p class="discount-trampa">$ <%= products.discount %></p>  
+                                <% } %> 
                             <h4 class="description"><%= products.name %></h4>
                             <i class="fas fa-cart-arrow-down"  ></i>                            
                             

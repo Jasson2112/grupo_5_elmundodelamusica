@@ -64,10 +64,10 @@ module.exports = {
             id_category: parseInt(req.body.Product_cat),
             id_brand: parseInt(req.body.Product_bra),
             image: imagen,
-                   
-        })
-
-            .then((products) => {
+          })
+          
+          .then((products) => {
+              console.log(req.body.discount)         
                 res.redirect('products/')
                 })
             .catch((errors) => {
@@ -161,7 +161,9 @@ module.exports = {
                   product_id: req.params.id
                   }
           })
-          res.redirect("productDetail/" + req.params.id);
+          .then(function() { 
+            res.redirect("productDetail/" + req.params.id);
+         })
         })
         .catch(error => console.log("Falló el acceso a la DB o la edición del producto", error))
     }

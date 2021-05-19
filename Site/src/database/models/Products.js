@@ -15,7 +15,7 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.DECIMAL(8,2),
         },
         discount: {
-            type: dataTypes.DECIMAL(3,2),
+            type: dataTypes.DECIMAL(4,2),
         },
         id_category: {
             type: dataTypes.INTEGER,
